@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC, Outfit } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const serifSC = Noto_Serif_SC({
@@ -21,6 +22,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "佳视眼镜 JIASHI OPTICAL｜学生近视配镜 · 专业验光",
     template: "%s｜佳视眼镜",
@@ -39,8 +44,25 @@ export const metadata: Metadata = {
     title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
     description:
       "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
+    url: "/",
     locale: "zh_CN",
     type: "website",
+    siteName: "佳视眼镜 JIASHI OPTICAL",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "佳视眼镜 JIASHI OPTICAL — 看清世界，从佳视开始",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
+    description:
+      "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
+    images: ["/og-image.png"],
   },
 };
 
