@@ -1,130 +1,7 @@
+import Link from "next/link";
 import { IconArrowRight, IconCheck, IconSparkle } from "./icons";
-
-/* ---------------- 三款眼镜插画（统一线性风格） ---------------- */
-
-function GlassesBackdrop({ children }: { children: React.ReactNode }) {
-  return (
-    <svg
-      viewBox="0 0 240 200"
-      aria-hidden="true"
-      className="mx-auto mb-6 h-auto w-full max-w-[15rem]"
-    >
-      <circle cx="120" cy="100" r="86" fill="#fcfbf8" stroke="#e8e3d7" strokeWidth="1.5" />
-      <circle cx="120" cy="100" r="78" fill="none" stroke="#f0ece2" strokeWidth="1" strokeDasharray="2 6" />
-      {children}
-    </svg>
-  );
-}
-
-function SparkleGlyph({ x, y, s = 9 }: { x: number; y: number; s?: number }) {
-  const k = s / 8;
-  return (
-    <g stroke="#c9a227" strokeWidth="1.8" strokeLinecap="round">
-      <path d={`M${x} ${y - k * 8} L${x} ${y + k * 8} M${x - k * 8} ${y} L${x + k * 8} ${y}`} />
-      <path d={`M${x - k * 5} ${y - k * 5} L${x + k * 5} ${y + k * 5} M${x - k * 5} ${y + k * 5} L${x + k * 5} ${y - k * 5}`} opacity="0.55" />
-    </g>
-  );
-}
-
-/** 学生近视镜：圆框、轻盈、护目蓝 */
-function StudentGlasses() {
-  return (
-    <GlassesBackdrop>
-      <g className="animate-float origin-[120px_100px]">
-        <rect x="50" y="76" width="58" height="46" rx="19" fill="#dce9f7" stroke="#1e3a5f" strokeWidth="3.5" />
-        <rect x="132" y="76" width="58" height="46" rx="19" fill="#dce9f7" stroke="#1e3a5f" strokeWidth="3.5" />
-        <path d="M108 88c9 2.5 15 2.5 24 0" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M50 84 32 75M190 84l-18-9" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M62 108l15-13M146 108l15-13" stroke="#d4af37" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
-        <circle cx="50" cy="80" r="3.2" fill="#d4af37" />
-        <circle cx="190" cy="80" r="3.2" fill="#d4af37" />
-      </g>
-      <SparkleGlyph x={196} y={44} />
-      <SparkleGlyph x={44} y={142} s={7} />
-    </GlassesBackdrop>
-  );
-}
-
-/** 时尚太阳镜：厚框、深色镜片、金色日芒 */
-function SunGlasses() {
-  return (
-    <GlassesBackdrop>
-      {/* 日芒 */}
-      <g stroke="#d4af37" strokeWidth="2" strokeLinecap="round" opacity="0.5">
-        <circle cx="172" cy="42" r="12" fill="none" />
-        <path d="M172 18v-8M172 66v8M148 42h-8M196 42h8M155 25l-6-6M189 25l6-6M155 59l-6 6M189 59l6 6" />
-      </g>
-      <g className="animate-float-slow origin-[120px_100px]">
-        <defs>
-          <linearGradient id="lensGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#365e93" />
-            <stop offset="1" stopColor="#0f1e31" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M58 -4 L34 -12 Q29 -13.5 28 -8 L24 20 Q23.5 26 29.5 26 L53 26 Q59 26 59 20 L59 2 Q59 -4 58 -4 Z"
-          transform="translate(32 74)"
-          fill="url(#lensGrad)"
-          stroke="#0f1e31"
-          strokeWidth="5"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M58 -4 L34 -12 Q29 -13.5 28 -8 L24 20 Q23.5 26 29.5 26 L53 26 Q59 26 59 20 L59 2 Q59 -4 58 -4 Z"
-          transform="translate(208 74) scale(-1 1)"
-          fill="url(#lensGrad)"
-          stroke="#0f1e31"
-          strokeWidth="5"
-          strokeLinejoin="round"
-        />
-        <path d="M90 66c8 2 16 2 24 0" fill="none" stroke="#0f1e31" strokeWidth="5" strokeLinecap="round" />
-        <path d="M94 64 78 54M146 64l16-10" fill="none" stroke="#0f1e31" strokeWidth="5" strokeLinecap="round" />
-        <path d="M102 88l14-11M130 88l14-11" stroke="#d4af37" strokeWidth="2.2" strokeLinecap="round" opacity="0.75" />
-        <circle cx="94" cy="62" r="3" fill="#d4af37" />
-        <circle cx="146" cy="62" r="3" fill="#d4af37" />
-      </g>
-      <text
-        x="120"
-        y="182"
-        textAnchor="middle"
-        fontFamily="var(--font-outfit), sans-serif"
-        fontSize="11"
-        letterSpacing="3"
-        fill="#a8841b"
-      >
-        UV400
-      </text>
-    </GlassesBackdrop>
-  );
-}
-
-/** 老花镜：半框、金色下缘、案头书卷 */
-function ReadingGlasses() {
-  return (
-    <GlassesBackdrop>
-      <g className="animate-float origin-[120px_100px]">
-        {/* 镜片 */}
-        <rect x="50" y="74" width="58" height="46" rx="19" fill="#eef3f9" stroke="#b3c5dd" strokeWidth="1.5" />
-        <rect x="132" y="74" width="58" height="46" rx="19" fill="#eef3f9" stroke="#b3c5dd" strokeWidth="1.5" />
-        {/* 半框上缘 */}
-        <path d="M52 92 Q79 60 108 82" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M188 92 Q161 60 132 82" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        {/* 桥与腿 */}
-        <path d="M108 84c8 2 16 2 24 0" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M50 82 32 73M190 82l-18-9" fill="none" stroke="#1e3a5f" strokeWidth="3.5" strokeLinecap="round" />
-        <path d="M64 102l14-11M144 102l14-11" stroke="#d4af37" strokeWidth="2.2" strokeLinecap="round" opacity="0.8" />
-        <circle cx="50" cy="78" r="3.2" fill="#d4af37" />
-        <circle cx="190" cy="78" r="3.2" fill="#d4af37" />
-      </g>
-      {/* 案头书卷 */}
-      <g fill="none" stroke="#8aa5c4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.85">
-        <path d="M120 146c-9-4.5-21-6-31-4v22c10-2 22 0 31 4Z" />
-        <path d="M120 146c9-4.5 21-6 31-4v22c-10-2-22 0-31 4Z" />
-        <path d="M120 146v22M89 148h62" opacity="0.5" />
-      </g>
-    </GlassesBackdrop>
-  );
-}
+import Photo from "./Photo";
+import { linePhotos } from "@/lib/photos";
 
 /* ---------------- 产品系列区块 ---------------- */
 
@@ -139,7 +16,7 @@ const products = [
       "航空钛镜架，轻至 8 克，防摔耐磨",
     ],
     price: "学生套餐 ¥299 起",
-    illustration: <StudentGlasses />,
+    photo: linePhotos.student,
     featured: true,
   },
   {
@@ -152,7 +29,7 @@ const products = [
       "可定制近视镜片，度数也能凹造型",
     ],
     price: "精选款 ¥199 起",
-    illustration: <SunGlasses />,
+    photo: linePhotos.sun,
     featured: false,
   },
   {
@@ -165,7 +42,7 @@ const products = [
       "轻便舒适，长辈佩戴无负担",
     ],
     price: "基础款 ¥159 起",
-    illustration: <ReadingGlasses />,
+    photo: linePhotos.reading,
     featured: false,
   },
 ];
@@ -209,7 +86,14 @@ export default function Products() {
                 </span>
               )}
 
-              {p.illustration}
+              <div className="relative mx-auto mb-6 w-full max-w-[15rem] overflow-hidden rounded-2xl border border-line shadow-card">
+                <div className="aspect-[6/5] transition-transform duration-500 ease-out group-hover:scale-[1.05]">
+                  <Photo
+                    photo={p.photo}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                </div>
+              </div>
 
               <p
                 className={`font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] ${
@@ -260,8 +144,8 @@ export default function Products() {
                 >
                   {p.price}
                 </span>
-                <a
-                  href="#showroom"
+                <Link
+                  href="/#showroom"
                   className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 ${
                     p.featured
                       ? "text-cream hover:text-gold-300"
@@ -270,7 +154,7 @@ export default function Products() {
                 >
                   了解详情
                   <IconArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </article>
           ))}

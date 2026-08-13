@@ -33,6 +33,26 @@ npm run start    # 生产预览
 | 口碑评价 | `components/Testimonials.tsx` | 家长与顾客评价 |
 | 预约表单 | `components/Contact.tsx` | 门店信息 + 前端校验表单（演示） |
 | 页脚 | `components/Footer.tsx` | — |
+| 护眼博客 | `app/blog/` | 列表 + 文章详情（SSG，BlogPosting JSON-LD，RSS） |
+
+## 博客写作指南
+
+文章为 Markdown 文件，放在 `content/blog/*.md`，frontmatter 字段：
+
+```yaml
+---
+title: 文章标题
+description: 一句话摘要（用于列表卡片与 meta description）
+category: 近视防控   # 近视防控 / 学生护眼 / 眼镜选购 / 长辈视界
+date: 2026-08-12
+cover: lens-dim     # 封面变体，见 components/blog/BlogCover.tsx
+tags: [离焦镜片, 近视防控]
+---
+```
+
+- 保存后重新 `npm run build` 即自动生成静态页面、纳入 sitemap 与 RSS
+- 正文支持 GFM 表格；站内互链用 `/blog/xxx`、`/#锚点` 绝对路径
+- 内容要求：不夸大功效、不做医疗承诺，文末保留科普免责声明
 
 滚动渐入由 `components/Reveal.tsx`（IntersectionObserver）实现，
 并尊重 `prefers-reduced-motion`。

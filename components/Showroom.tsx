@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { IconArrowRight } from "./icons";
-import { ProductArt, type ProductArtVariant } from "./product-art";
+import Photo from "./Photo";
+import { productPhotos } from "@/lib/photos";
 
 type Category = "全部" | "镜片" | "眼镜架" | "太阳镜" | "老花镜";
 type ProductCategory = Exclude<Category, "全部">;
@@ -18,7 +19,8 @@ const tagStyles: Record<string, string> = {
 type Product = {
   name: string;
   category: ProductCategory;
-  variant: ProductArtVariant;
+  /** 对应 lib/photos.ts 中 productPhotos 的 key */
+  variant: keyof typeof productPhotos;
   tag?: keyof typeof tagStyles;
   spec: string;
   price: string;
@@ -200,7 +202,7 @@ export default function Showroom() {
               style={{ animationDelay: `${i * 45}ms` }}
               className="card-in group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
             >
-              <div className="art-tile relative aspect-[5/4]">
+              <div className="relative aspect-[5/4] overflow-hidden">
                 {p.tag && (
                   <span
                     className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-xs font-bold ${tagStyles[p.tag]}`}
@@ -208,8 +210,11 @@ export default function Showroom() {
                     {p.tag}
                   </span>
                 )}
-                <div className="absolute inset-0 flex items-center justify-center p-5 transition-transform duration-500 ease-out group-hover:scale-[1.07]">
-                  <ProductArt variant={p.variant} className="h-full max-h-full w-auto max-w-full" />
+                <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]">
+                  <Photo
+                    photo={productPhotos[p.variant]}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  />
                 </div>
               </div>
 
