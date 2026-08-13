@@ -73,7 +73,7 @@ export default function Products() {
           {products.map((p, i) => (
             <article
               key={p.title}
-              className={`group relative flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1.5 ${
+              className={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1.5 ${
                 p.featured
                   ? "border border-gold-400/40 bg-navy-800 shadow-[0_20px_48px_rgb(20_37_58/0.35)] hover:shadow-[0_28px_64px_rgb(20_37_58/0.45)]"
                   : "border border-line bg-white shadow-card hover:shadow-card-hover"
@@ -86,8 +86,9 @@ export default function Products() {
                 </span>
               )}
 
-              <div className="relative mx-auto mb-6 w-full max-w-[15rem] overflow-hidden rounded-2xl border border-line shadow-card">
-                <div className="aspect-[6/5] transition-transform duration-500 ease-out group-hover:scale-[1.05]">
+              {/* 顶部通栏大图 */}
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.05]">
                   <Photo
                     photo={p.photo}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -95,66 +96,68 @@ export default function Products() {
                 </div>
               </div>
 
-              <p
-                className={`font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] ${
-                  p.featured ? "text-gold-300" : "text-gold-600"
-                }`}
-              >
-                {p.en}
-              </p>
-              <h3
-                className={`mt-2 font-display text-2xl font-bold ${
-                  p.featured ? "text-cream" : "text-navy-900"
-                }`}
-              >
-                {p.title}
-              </h3>
-              <p
-                className={`mt-3 text-[0.95rem] leading-relaxed ${
-                  p.featured ? "text-navy-100" : "text-ink-soft"
-                }`}
-              >
-                {p.desc}
-              </p>
-
-              <ul className="mt-6 space-y-2.5">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <IconCheck
-                      className={`mt-0.5 h-4 w-4 shrink-0 ${
-                        p.featured ? "text-gold-300" : "text-gold-600"
-                      }`}
-                    />
-                    <span
-                      className={`text-sm leading-relaxed ${
-                        p.featured ? "text-navy-100" : "text-ink-soft"
-                      }`}
-                    >
-                      {f}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto flex items-center justify-between pt-8">
-                <span
-                  className={`font-latin text-sm font-semibold ${
-                    p.featured ? "text-gold-300" : "text-navy-800"
+              <div className="flex flex-1 flex-col p-7 sm:p-8">
+                <p
+                  className={`font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] ${
+                    p.featured ? "text-gold-300" : "text-gold-600"
                   }`}
                 >
-                  {p.price}
-                </span>
-                <Link
-                  href="/#showroom"
-                  className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 ${
-                    p.featured
-                      ? "text-cream hover:text-gold-300"
-                      : "text-navy-800 hover:text-gold-700"
+                  {p.en}
+                </p>
+                <h3
+                  className={`mt-2 font-display text-2xl font-bold ${
+                    p.featured ? "text-cream" : "text-navy-900"
                   }`}
                 >
-                  了解详情
-                  <IconArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
+                  {p.title}
+                </h3>
+                <p
+                  className={`mt-3 text-[0.95rem] leading-relaxed ${
+                    p.featured ? "text-navy-100" : "text-ink-soft"
+                  }`}
+                >
+                  {p.desc}
+                </p>
+
+                <ul className="mt-6 space-y-2.5">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <IconCheck
+                        className={`mt-0.5 h-4 w-4 shrink-0 ${
+                          p.featured ? "text-gold-300" : "text-gold-600"
+                        }`}
+                      />
+                      <span
+                        className={`text-sm leading-relaxed ${
+                          p.featured ? "text-navy-100" : "text-ink-soft"
+                        }`}
+                      >
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto flex items-center justify-between pt-8">
+                  <span
+                    className={`font-latin text-sm font-semibold ${
+                      p.featured ? "text-gold-300" : "text-navy-800"
+                    }`}
+                  >
+                    {p.price}
+                  </span>
+                  <Link
+                    href="/#showroom"
+                    className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 ${
+                      p.featured
+                        ? "text-cream hover:text-gold-300"
+                        : "text-navy-800 hover:text-gold-700"
+                    }`}
+                  >
+                    了解详情
+                    <IconArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
