@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* ============================================================
+   佳视眼镜 · 精致学院风设计令牌
+   主色：学术海军蓝 / 暖金点缀 / 暖纸白
+   ============================================================ */
+
+@theme {
+  /* 海军蓝（学术、专业、信任） */
+  --color-navy-50: #edf2f8;
+  --color-navy-100: #d9e2ee;
+  --color-navy-200: #b3c5dd;
+  --color-navy-300: #8aa5c4;
+  --color-navy-600: #365e93;
+  --color-navy-700: #2a4c77;
+  --color-navy-800: #1e3a5f;
+  --color-navy-900: #14253a;
+  --color-navy-950: #0f1e31;
+
+  /* 暖金（精致点缀、CTA） */
+  --color-gold-300: #ead088;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a8841b;
+  --color-gold-700: #7e6113;
+
+  /* 纸感底色与墨色 */
+  --color-paper: #f8f6f1;
+  --color-cream: #fcfbf8;
+  --color-ink: #0f172a;
+  --color-ink-soft: #3b4759;
+  --color-ink-mute: #6b7484;
+  --color-line: #e8e3d7;
+  --color-line-soft: #f0ece2;
+
+  /* 字体：宋体标题（书卷气）+ 黑体正文 + Outfit 拉丁 */
+  --font-display: var(--font-serif-sc), "Songti SC", "STSong", "SimSun", serif;
+  --font-sans: var(--font-sans-sc), "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+  --font-latin: var(--font-outfit), "Avenir Next", "Helvetica Neue", sans-serif;
+
+  /* 阴影层级 */
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 10px 32px rgb(30 58 95 / 0.08);
+  --shadow-card-hover: 0 2px 4px rgb(15 23 42 / 0.05),
+    0 18px 48px rgb(30 58 95 / 0.14);
+
+  /* 缓动 */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 动效 */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* ---------- 基础 ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-navy-950);
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* 焦点可见性（键盘导航） */
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- 滚动渐入 ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-float,
+  .animate-float-slow {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- 产品展示 ---------- */
+
+.art-tile {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.9), transparent 62%),
+    linear-gradient(155deg, #eef3f9 0%, #fcfbf8 52%, #f4eedd 100%);
+}
+
+.card-in {
+  animation: card-in 0.55s var(--ease-out-soft) backwards;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-in {
+    animation: none;
+  }
+}
+
+/* ---------- 装饰：双细线（学院风元素） ---------- */
+
+.rule-gold {
+  display: inline-block;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-400),
+    transparent
+  );
+}
+
+/* ---------- 表单 ---------- */
+
+.field {
+  @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-ink-mute/60 transition-colors duration-200;
+}
+
+.field:hover {
+  border-color: var(--color-navy-300);
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--color-navy-800);
+  box-shadow: 0 0 0 3px rgb(30 58 95 / 0.12);
+}
+
+.field-error {
+  border-color: #c0392b !important;
+}
+
+/* select 下拉箭头 */
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7484' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 9 7 7 7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.1rem;
+  padding-right: 2.75rem;
+}
