@@ -47,7 +47,7 @@ export default function Nav({
    * 3. 居中浮动胶囊（桌面端滚动后）—— 圆角收拢，悬浮在页面最顶层
    */
   const navShape = scrolled && !open
-    ? "h-16 max-w-full rounded-none border-0 border-b border-line bg-white/95 px-5 shadow-[0_2px_16px_rgb(30_58_95/0.06)] backdrop-blur-md sm:px-8 md:mt-4 md:h-14 md:max-w-4xl md:rounded-full md:border md:border-line md:px-7 md:shadow-[0_12px_40px_rgb(30_58_95/0.16)]"
+    ? "h-16 max-w-full rounded-none border-0 border-b border-line bg-white/95 px-5 shadow-[0_2px_16px_rgb(30_58_95/0.06)] backdrop-blur-md sm:px-8 md:mt-4 md:max-w-4xl md:rounded-full md:border md:border-line md:px-7 md:shadow-[0_12px_40px_rgb(30_58_95/0.16)]"
     : open || variant === "solid"
       ? "h-[4.5rem] max-w-7xl border-b border-line bg-white/95 px-5 shadow-[0_2px_16px_rgb(30_58_95/0.06)] backdrop-blur-md sm:px-8"
       : "h-[4.5rem] max-w-7xl px-5 sm:px-8";
