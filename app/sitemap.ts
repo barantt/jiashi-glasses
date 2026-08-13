@@ -1,13 +1,27 @@
 import type { MetadataRoute } from "next";
+import { getPosts } from "@/lib/blog";
 import { siteUrl } from "@/lib/site";
 
-/** 站点地图 —— 单页落地页，当前仅首页一个 URL */
+/** 站点地图 —— 首页 + 博客列表 + 全部文章 */
 export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getPosts().map((p) => ({
+    url: `${siteUrl}/blog/${p.slug}`,
+    lastModified: new Date(`${p.date}T08:00:00+08:00`),
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
   return [
     {
       url: `${siteUrl}/`,
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: `${siteUrl}/blog`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...posts,
   ];
 }

@@ -1,18 +1,24 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IconMenu, IconX, LogoMark } from "./icons";
 
 const links = [
-  { href: "#products", label: "产品系列" },
-  { href: "#showroom", label: "产品展示" },
-  { href: "#process", label: "验光服务" },
-  { href: "#students", label: "学生专区" },
-  { href: "#testimonials", label: "口碑故事" },
-  { href: "#contact", label: "联系我们" },
+  { href: "/#products", label: "产品系列" },
+  { href: "/#showroom", label: "产品展示" },
+  { href: "/#process", label: "验光服务" },
+  { href: "/#students", label: "学生专区" },
+  { href: "/blog", label: "护眼博客" },
+  { href: "/#contact", label: "联系我们" },
 ];
 
-export default function Nav() {
+export default function Nav({
+  variant = "overlay",
+}: {
+  /** overlay：透明起底（用于深色 Hero 页面）；solid：始终实底（用于浅色页面） */
+  variant?: "overlay" | "solid";
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -31,7 +37,7 @@ export default function Nav() {
     };
   }, [open]);
 
-  const solid = scrolled || open;
+  const solid = variant === "solid" || scrolled || open;
 
   return (
     <header
@@ -78,7 +84,7 @@ export default function Nav() {
         </a>
 
         {/* 桌面端链接 */}
-        <ul className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <ul className="hidden items-center gap-4 lg:flex xl:gap-7">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -99,12 +105,12 @@ export default function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="hidden rounded-full bg-gold-400 px-6 py-2.5 text-[0.95rem] font-semibold text-navy-950 shadow-[0_4px_16px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0 sm:inline-flex"
           >
             预约免费验光
-          </a>
+          </Link>
 
           {/* 移动端菜单按钮 */}
           <button
@@ -144,13 +150,13 @@ export default function Nav() {
             </li>
           ))}
           <li className="pt-2">
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="block rounded-full bg-gold-400 px-4 py-3 text-center text-base font-semibold text-navy-950"
             >
               预约免费验光
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

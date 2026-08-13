@@ -4,11 +4,11 @@ const columns = [
   {
     title: "快速导航",
     links: [
-      { label: "产品系列", href: "#products" },
-      { label: "产品展示", href: "#showroom" },
-      { label: "验光服务", href: "#process" },
-      { label: "学生专区", href: "#students" },
-      { label: "口碑故事", href: "#testimonials" },
+      { label: "产品系列", href: "/#products" },
+      { label: "产品展示", href: "/#showroom" },
+      { label: "验光服务", href: "/#process" },
+      { label: "学生专区", href: "/#students" },
+      { label: "护眼博客", href: "/blog" },
     ],
   },
   {
