@@ -16,7 +16,7 @@ export default function Footer() {
                 <span className="font-display text-lg font-bold text-cream">
                   {brand.name}
                 </span>
-                <span className="font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] text-gold-300">
+                <span className="font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] text-green-300">
                   {brand.nameLatin}
                 </span>
               </span>
@@ -40,7 +40,7 @@ export default function Footer() {
                   <li key={l.id}>
                     <a
                       href={l.href}
-                      className="text-sm text-navy-200/80 transition-colors duration-200 hover:text-gold-300"
+                      className="text-sm text-navy-200/80 transition-colors duration-200 hover:text-green-300"
                     >
                       {l.label}
                     </a>
@@ -61,7 +61,7 @@ export default function Footer() {
                 电话：
                 <a
                   href={store.phoneHref}
-                  className="font-latin font-semibold text-gold-300 transition-colors duration-200 hover:text-gold-400"
+                  className="font-latin font-semibold text-green-300 transition-colors duration-200 hover:text-green-400"
                 >
                   {store.phoneDisplay}
                 </a>

@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 /**
- * 佳视眼镜图标集 —— 统一线性风格：1.5px 描边、圆角端点
+ * E视眼镜图标集 —— 统一线性风格：1.5px 描边、圆角端点
  */
 
 type IconProps = SVGProps<SVGSVGElement>;
@@ -171,17 +171,39 @@ export function IconChevronDown(props: IconProps) {
   );
 }
 
-/** 品牌标志：金色眼镜徽章 */
+/**
+ * 品牌标志：蓝绿「眼睛」徽章 ——
+ * 蓝色上弧（眼睑/镜片上缘）+ 绿色下弧构成眼睛轮廓，中心嵌品牌首字母 E。
+ * 完整锁版 = 本徽章 + 旁边的品牌文字（Nav/Footer 的 HTML 文本）。
+ */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" className={className}>
-      <circle cx="32" cy="32" r="31" fill="#1e3a5f" stroke="#d4af37" strokeWidth="2" />
-      <g fill="none" stroke="#d4af37" strokeWidth="3" strokeLinecap="round">
-        <rect x="12" y="26" width="15" height="11" rx="5.5" />
-        <rect x="37" y="26" width="15" height="11" rx="5.5" />
-        <path d="M27 31.5h10" />
-        <path d="M12 29.5 7 26M52 29.5 57 26" />
-      </g>
+      <circle cx="32" cy="32" r="31" fill="#1e3a5f" stroke="#2fa06e" strokeWidth="2" />
+      {/* 上弧：专业、清晰（蓝） */}
+      <path
+        d="M13 32C18 17 46 17 51 32"
+        stroke="#5b8ec0"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* 下弧：健康、自然（绿） */}
+      <path
+        d="M51 32C46 47 18 47 13 32"
+        stroke="#2fa06e"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* 中心 E 字（描边绘制，无字体依赖） */}
+      <path
+        d="M27.5 24.5V39.5M27.5 24.5H39.5M27.5 32H36.5M27.5 39.5H39.5"
+        stroke="#fcfbf8"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
     </svg>
   );
 }

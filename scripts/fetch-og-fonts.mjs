@@ -11,9 +11,9 @@ const OUT_DIR = path.join(process.cwd(), "scripts/assets/fonts");
 
 // family:weight 与所需文字
 const REQUESTS = [
-  { family: "Noto+Serif+SC", weight: 700, text: "佳视眼镜看清世界从开始" },
-  { family: "Noto+Sans+SC", weight: 500, text: "学生配镜专业验光太阳镜老花镜" },
-  { family: "Outfit", weight: 600, text: "JIASHI OPTICAL EST. 2012 ·" },
+  { family: "Noto+Serif+SC", weight: 700, text: "E视眼镜看清世界从开始，" },
+  { family: "Noto+Sans+SC", weight: 500, text: "学生配镜专业验光太阳镜老花镜·" },
+  { family: "Outfit", weight: 600, text: "EVISION OPTICAL EST. 2012 ·" },
 ];
 
 const cssUrl = (family, weight, text) =>

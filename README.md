@@ -1,6 +1,6 @@
-# 佳视眼镜 JIASHI OPTICAL · 品牌落地页
+# E视眼镜 EVISION OPTICAL · 品牌落地页
 
-精致学院风（学术海军蓝 + 暖金）眼镜品牌落地页。核心客群为学生近视配镜，
+蓝绿视光医疗风（学术海军蓝 + 翡翠绿）眼镜品牌落地页。核心客群为学生近视配镜，
 同时覆盖时尚太阳镜与老花镜业务。
 
 ## 技术栈
@@ -24,7 +24,7 @@ npm run start    # 生产预览
 | 区块 | 文件 | 说明 |
 |------|------|------|
 | 导航（吸顶） | `components/Nav.tsx` | 滚动变实底 + 移动端菜单 |
-| Hero | `components/Hero.tsx` | 海军蓝 + 手绘标准视力表 + 金色印章 |
+| Hero | `components/Hero.tsx` | 海军蓝 + 手绘标准视力表 + 蓝绿印章 |
 | 信任条 | `components/TrustBar.tsx` | 资质与承诺 |
 | 产品系列 | `components/Products.tsx` | 学生近视镜（核心卡）/ 太阳镜 / 老花镜 |
 | 产品展示 | `components/Showroom.tsx` | 镜片 / 眼镜架 / 太阳镜 / 老花镜四分类筛选，12 款产品 |

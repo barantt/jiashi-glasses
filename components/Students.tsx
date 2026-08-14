@@ -27,8 +27,8 @@ export default function Students() {
         {/* 左侧文案 */}
         <div>
           <p className="flex items-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-600 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-600 sm:text-sm">
               {studentsSection.eyebrow}
             </span>
           </p>
@@ -46,7 +46,7 @@ export default function Students() {
               const Icon = iconMap[c.icon];
               return (
                 <li key={c.id} className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-800 text-gold-300">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-800 text-green-300">
                     <Icon className="h-5.5 w-5.5" />
                   </span>
                   <span>
@@ -62,7 +62,7 @@ export default function Students() {
 
           {/* 护眼小贴士 */}
           <aside className="mt-10 rounded-2xl border border-line bg-white p-6 shadow-card sm:p-7">
-            <p className="font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-gold-600">
+            <p className="font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-green-600">
               {tips.eyebrow}
             </p>
             <h3 className="mt-2 font-display text-lg font-bold text-navy-900">
@@ -83,19 +83,19 @@ export default function Students() {
         {/* 右侧卡片 */}
         <div className="space-y-6">
           {/* 8 折大卡 */}
-          <div className="relative overflow-hidden rounded-3xl border border-gold-400/50 bg-white p-8 shadow-[0_18px_44px_rgb(30_58_95/0.1)] sm:p-10">
+          <div className="relative overflow-hidden rounded-3xl border border-green-400/50 bg-white p-8 shadow-[0_18px_44px_rgb(30_58_95/0.1)] sm:p-10">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -right-6 -top-10 font-display text-[9rem] font-black leading-none text-gold-400/15"
+              className="pointer-events-none absolute -right-6 -top-10 font-display text-[9rem] font-black leading-none text-green-400/15"
             >
               {discountCard.watermark}
             </span>
-            <p className="font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-gold-600">
+            <p className="font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-green-600">
               {discountCard.eyebrow}
             </p>
             <h3 className="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
               {discountCard.titlePrefix}
-              <span className="ml-3 inline-block rounded-xl bg-gold-400 px-3.5 py-1 align-middle text-2xl font-black text-navy-950 sm:text-3xl">
+              <span className="ml-3 inline-block rounded-xl bg-green-400 px-3.5 py-1 align-middle text-2xl font-black text-navy-950 sm:text-3xl">
                 {discountCard.discount}
               </span>
             </h3>
@@ -104,7 +104,7 @@ export default function Students() {
             </p>
             <a
               href={discountCard.ctaHref}
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-green-700"
             >
               {discountCard.cta}
               <IconArrowRight className="h-4 w-4" />
@@ -123,13 +123,13 @@ export default function Students() {
                 }`}
               >
                 {p.hot && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-gold-400 px-3 py-1 text-xs font-bold text-navy-950">
+                  <span className="absolute -top-3 left-6 rounded-full bg-green-400 px-3 py-1 text-xs font-bold text-navy-950">
                     {studentsSection.hotBadge}
                   </span>
                 )}
                 <h4
                   className={`font-display text-lg font-bold ${
-                    p.hot ? "text-gold-300" : "text-navy-900"
+                    p.hot ? "text-green-300" : "text-navy-900"
                   }`}
                 >
                   {p.name}

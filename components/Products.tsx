@@ -12,11 +12,11 @@ export default function Products() {
         {/* 标题 */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-600 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-600 sm:text-sm">
               {productsSection.eyebrow}
             </span>
-            <span className="rule-gold w-10" />
+            <span className="rule-green w-10" />
           </p>
           <h2 className="mt-5 font-display text-3xl font-bold text-navy-900 sm:text-4xl lg:text-[2.6rem] lg:leading-tight">
             {productsSection.title}
@@ -33,12 +33,12 @@ export default function Products() {
               key={p.id}
               className={`group relative flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1.5 ${
                 p.featured
-                  ? "border border-gold-400/40 bg-navy-800 shadow-[0_20px_48px_rgb(20_37_58/0.35)] hover:shadow-[0_28px_64px_rgb(20_37_58/0.45)]"
+                  ? "border border-green-400/40 bg-navy-800 shadow-[0_20px_48px_rgb(20_37_58/0.35)] hover:shadow-[0_28px_64px_rgb(20_37_58/0.45)]"
                   : "border border-line bg-white shadow-card hover:shadow-card-hover"
               } ${i === 2 ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               {p.featured && (
-                <span className="absolute left-6 top-6 z-10 inline-flex items-center gap-1.5 rounded-full bg-gold-400 px-3.5 py-1.5 text-xs font-bold tracking-wide text-navy-950 shadow-md">
+                <span className="absolute left-6 top-6 z-10 inline-flex items-center gap-1.5 rounded-full bg-green-400 px-3.5 py-1.5 text-xs font-bold tracking-wide text-navy-950 shadow-md">
                   <IconSparkle className="h-3.5 w-3.5" />
                   {productsSection.featuredBadge}
                 </span>
@@ -57,7 +57,7 @@ export default function Products() {
               <div className="flex flex-1 flex-col p-7 sm:p-8">
                 <p
                   className={`font-latin text-[0.68rem] font-semibold uppercase tracking-[0.26em] ${
-                    p.featured ? "text-gold-300" : "text-gold-600"
+                    p.featured ? "text-green-300" : "text-green-600"
                   }`}
                 >
                   {p.en}
@@ -82,7 +82,7 @@ export default function Products() {
                     <li key={f} className="flex items-start gap-2.5">
                       <IconCheck
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          p.featured ? "text-gold-300" : "text-gold-600"
+                          p.featured ? "text-green-300" : "text-green-600"
                         }`}
                       />
                       <span
@@ -99,7 +99,7 @@ export default function Products() {
                 <div className="mt-auto flex items-center justify-between pt-8">
                   <span
                     className={`font-latin text-sm font-semibold ${
-                      p.featured ? "text-gold-300" : "text-navy-800"
+                      p.featured ? "text-green-300" : "text-navy-800"
                     }`}
                   >
                     {p.price}
@@ -108,8 +108,8 @@ export default function Products() {
                     href={productsSection.ctaHref}
                     className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 ${
                       p.featured
-                        ? "text-cream hover:text-gold-300"
-                        : "text-navy-800 hover:text-gold-700"
+                        ? "text-cream hover:text-green-300"
+                        : "text-navy-800 hover:text-green-700"
                     }`}
                   >
                     {productsSection.ctaLabel}

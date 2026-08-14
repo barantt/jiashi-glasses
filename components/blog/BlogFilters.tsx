@@ -52,7 +52,7 @@ export default function BlogFilters({
             onClick={() => setActive(c)}
             className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 sm:px-6 ${
               active === c
-                ? "bg-navy-800 text-gold-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)]"
+                ? "bg-navy-800 text-green-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)]"
                 : "bg-paper text-ink-soft hover:bg-navy-50 hover:text-navy-800"
             }`}
           >

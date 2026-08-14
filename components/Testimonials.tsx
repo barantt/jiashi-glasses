@@ -7,17 +7,17 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-600 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-600 sm:text-sm">
               {testimonialsSection.eyebrow}
             </span>
-            <span className="rule-gold w-10" />
+            <span className="rule-green w-10" />
           </p>
           <h2 className="mt-5 font-display text-3xl font-bold text-navy-900 sm:text-4xl lg:text-[2.6rem] lg:leading-tight">
             {testimonialsSection.title}
           </h2>
           <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <span className="flex items-center gap-1 text-gold-500">
+            <span className="flex items-center gap-1 text-green-500">
               {Array.from({ length: 5 }, (_, i) => (
                 <IconStar key={i} className="h-4.5 w-4.5" />
               ))}
@@ -39,7 +39,7 @@ export default function Testimonials() {
             >
               <span
                 aria-hidden="true"
-                className="font-display text-5xl font-black leading-none text-gold-400/70"
+                className="font-display text-5xl font-black leading-none text-green-400/70"
               >
                 “
               </span>
@@ -49,7 +49,7 @@ export default function Testimonials() {
               <figcaption className="mt-7 flex items-center gap-3.5 border-t border-line-soft pt-6">
                 <span
                   aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-800 font-display text-base font-bold text-gold-300"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-800 font-display text-base font-bold text-green-300"
                 >
                   {r.name.charAt(0)}
                 </span>
@@ -61,7 +61,7 @@ export default function Testimonials() {
                     {r.role}
                   </span>
                 </span>
-                <span className="ml-auto flex items-center gap-0.5 text-gold-500">
+                <span className="ml-auto flex items-center gap-0.5 text-green-500">
                   {Array.from({ length: 5 }, (_, i) => (
                     <IconStar key={i} className="h-3.5 w-3.5" />
                   ))}

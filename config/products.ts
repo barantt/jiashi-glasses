@@ -92,7 +92,7 @@ export const productsSection = {
   eyebrow: "Our Collection",
   title: "一副好眼镜，不止于清晰",
   subtitle:
-    "从课堂到旅途，从青春到从容 —— 佳视为每个年龄段的眼睛，准备恰到好处的答案。",
+    "从课堂到旅途，从青春到从容 —— E视为每个年龄段的眼睛，准备恰到好处的答案。",
   /** 核心推荐卡片的角标文案 */
   featuredBadge: "核心推荐",
   /** 卡片底部按钮 */
@@ -122,9 +122,9 @@ export type ShowroomProductCategory = Exclude<ShowroomCategory, "全部">;
  * key 即角标文案，showroomProducts[].tag 引用这里的 key。
  */
 export const tagStyles: Record<string, string> = {
-  热卖: "bg-gold-400 text-navy-950",
+  热卖: "bg-green-400 text-navy-950",
   新品: "bg-navy-800 text-cream",
-  学生优选: "border border-gold-500/60 bg-white text-gold-700",
+  学生优选: "border border-green-500/60 bg-white text-green-700",
 };
 
 export interface ShowroomProduct {

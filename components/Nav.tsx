@@ -49,7 +49,7 @@ export default function Nav({
     <header className="fixed inset-x-0 top-0 z-50">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-gold-400 focus:px-4 focus:py-2 focus:font-medium focus:text-navy-950"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-green-400 focus:px-4 focus:py-2 focus:font-medium focus:text-navy-950"
       >
         跳到主要内容
       </a>
@@ -79,7 +79,7 @@ export default function Nav({
             </span>
             <span
               className={`font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] ${
-                overlay ? "text-gold-300" : "text-gold-600"
+                overlay ? "text-green-300" : "text-green-600"
               }`}
             >
               {brand.nameLatin}
@@ -103,7 +103,7 @@ export default function Nav({
               >
                 {l.label}
                 <span
-                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-gold-400 transition-transform duration-300 group-hover:scale-x-100`}
+                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-green-400 transition-transform duration-300 group-hover:scale-x-100`}
                 />
               </Link>
             </li>
@@ -113,7 +113,7 @@ export default function Nav({
         <div className="flex shrink-0 items-center gap-3">
           <Link
             href={navCta.href}
-            className={`hidden rounded-full bg-gold-400 font-semibold text-navy-950 shadow-[0_4px_16px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0 sm:inline-flex ${
+            className={`hidden rounded-full bg-green-400 font-semibold text-navy-950 shadow-[0_4px_16px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 sm:inline-flex ${
               scrolled ? "px-5 py-2 text-sm" : "px-6 py-2.5 text-[0.95rem]"
             }`}
           >
@@ -161,7 +161,7 @@ export default function Nav({
             <Link
               href={navCta.href}
               onClick={() => setOpen(false)}
-              className="block rounded-full bg-gold-400 px-4 py-3 text-center text-base font-semibold text-navy-950"
+              className="block rounded-full bg-green-400 px-4 py-3 text-center text-base font-semibold text-navy-950"
             >
               {navCta.label}
             </Link>

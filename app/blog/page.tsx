@@ -46,12 +46,12 @@ export default function BlogPage() {
       <section className="relative overflow-hidden bg-navy-900 pb-14 pt-32 sm:pt-36">
         <div
           aria-hidden="true"
-          className="absolute -right-32 -top-32 h-[24rem] w-[24rem] rounded-full bg-gold-400/10 blur-3xl"
+          className="absolute -right-32 -top-32 h-[24rem] w-[24rem] rounded-full bg-green-400/10 blur-3xl"
         />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <p className="flex items-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-300 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-300 sm:text-sm">
               {blogPage.eyebrow}
             </span>
           </p>

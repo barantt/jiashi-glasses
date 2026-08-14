@@ -9,7 +9,7 @@
  *     改数字去 site.ts（unit 单位在此文件）
  *   - subtitle 是叙述句，句内嵌的「十四年 / 21 步 / 八克」与
  *     brandFacts 对应 —— 改数字时这句也要同步修改
- *   - title.highlight 是金色高亮词（「佳视」），与 brand.name 同字，
+ *   - title.highlight 是金色高亮词（「E视」），与 brand.name 同字，
  *     这是印章式视觉设计，保持现状即可
  *   - 视力表 ROWS 绘图参数不在这里 —— 它是 SVG 装饰图形，
  *     在 Hero.tsx 组件内
@@ -24,7 +24,7 @@ export const hero = {
   /** 主标题：line1 第一行，highlight 金色高亮词，line2 高亮词之后的文字 */
   title: {
     line1: "看清世界，",
-    highlight: "佳视",
+    highlight: "E视",
     line2: "开始",
   },
   /** 副标题（叙述句内嵌数字与 brandFacts 对应，改数字同步） */
@@ -42,9 +42,9 @@ export const hero = {
     { value: brandFacts.rating, unit: "分", label: "家长口碑评分" },
   ],
   /** 金色印章文字（视觉装饰，两行） */
-  sealText: ["佳视", "验光"],
+  sealText: ["E视", "验光"],
   /** 视力表卡片标题 */
-  chartCard: { title: "佳视 · 标准视力表", en: "Vision Chart" },
+  chartCard: { title: "E视 · 标准视力表", en: "Vision Chart" },
   /** 悬浮信息卡（icon 为图标名，需在 Hero.tsx 映射） */
   floatingCards: [
     { icon: "sparkle", text: `${brandFacts.steps} 步医学验光` },

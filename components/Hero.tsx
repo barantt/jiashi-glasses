@@ -44,7 +44,7 @@ function EyeChart() {
     <svg
       viewBox="0 0 340 424"
       role="img"
-      aria-label="佳视标准视力表插画"
+      aria-label="E视标准视力表插画"
       className="h-auto w-full"
     >
       {ROWS.map((row, ri) => {
@@ -68,7 +68,7 @@ function EyeChart() {
               textAnchor="end"
               fontFamily="var(--font-outfit), sans-serif"
               fontSize="13"
-              fill="#d4af37"
+              fill="#2fa06e"
             >
               {row.acuity}
             </text>
@@ -82,7 +82,7 @@ function EyeChart() {
         fontFamily="var(--font-outfit), sans-serif"
         fontSize="16"
         letterSpacing="4"
-        fill="#d4af37"
+        fill="#2fa06e"
       >
         5.0
       </text>
@@ -132,20 +132,20 @@ function HeroGlasses() {
         />
         <path
           d="M28 92l16-16"
-          stroke="#d4af37"
+          stroke="#2fa06e"
           strokeWidth="3"
           strokeLinecap="round"
           opacity="0.85"
         />
         <path
           d="M170 92l16-16"
-          stroke="#d4af37"
+          stroke="#2fa06e"
           strokeWidth="3"
           strokeLinecap="round"
           opacity="0.85"
         />
-        <circle cx="10" cy="62" r="3.2" fill="#d4af37" />
-        <circle cx="250" cy="62" r="3.2" fill="#d4af37" />
+        <circle cx="10" cy="62" r="3.2" fill="#2fa06e" />
+        <circle cx="250" cy="62" r="3.2" fill="#2fa06e" />
       </g>
     </svg>
   );
@@ -159,8 +159,8 @@ function Seal({ lines }: { lines: string[] }) {
       aria-hidden="true"
       className="h-20 w-20 drop-shadow-[0_6px_16px_rgb(0_0_0/0.35)] sm:h-24 sm:w-24"
     >
-      <circle cx="48" cy="48" r="45" fill="#0f1e31" stroke="#d4af37" strokeWidth="2.5" />
-      <circle cx="48" cy="48" r="35" fill="none" stroke="#d4af37" strokeWidth="1" />
+      <circle cx="48" cy="48" r="45" fill="#0f1e31" stroke="#2fa06e" strokeWidth="2.5" />
+      <circle cx="48" cy="48" r="35" fill="none" stroke="#2fa06e" strokeWidth="1" />
       {lines.map((line, i) => (
         <text
           key={line}
@@ -170,7 +170,7 @@ function Seal({ lines }: { lines: string[] }) {
           fontFamily="var(--font-serif-sc), serif"
           fontSize="21"
           fontWeight="700"
-          fill="#d4af37"
+          fill="#2fa06e"
         >
           {line}
         </text>
@@ -203,7 +203,7 @@ export default function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-gold-400/10 blur-3xl"
+        className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-green-400/10 blur-3xl"
       />
       <div
         aria-hidden="true"
@@ -214,8 +214,8 @@ export default function Hero() {
         {/* 文案 */}
         <div>
           <p className="flex items-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.32em] text-gold-300 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.32em] text-green-300 sm:text-sm">
               {hero.eyebrow}
             </span>
           </p>
@@ -223,7 +223,7 @@ export default function Hero() {
           <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.18] text-cream sm:text-6xl lg:text-[4.2rem]">
             {hero.title.line1}
             <br />
-            从<span className="text-gold-300">{hero.title.highlight}</span>
+            从<span className="text-green-300">{hero.title.highlight}</span>
             {hero.title.line2}
           </h1>
 
@@ -234,14 +234,14 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href={hero.ctaPrimary.href}
-              className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0"
+              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0"
             >
               {hero.ctaPrimary.label}
               <IconArrowRight className="h-4.5 w-4.5" />
             </a>
             <a
               href={hero.ctaSecondary.href}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-medium text-cream transition-all duration-200 hover:border-gold-300 hover:text-gold-300"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-medium text-cream transition-all duration-200 hover:border-green-300 hover:text-green-300"
             >
               {hero.ctaSecondary.label}
             </a>
@@ -251,9 +251,9 @@ export default function Hero() {
           <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
             {hero.stats.map((s) => (
               <div key={s.label}>
-                <dd className="font-latin text-3xl font-semibold tabular-nums text-gold-300 sm:text-[2.1rem]">
+                <dd className="font-latin text-3xl font-semibold tabular-nums text-green-300 sm:text-[2.1rem]">
                   {s.value}
-                  <span className="ml-1 text-base font-medium text-gold-300/80">
+                  <span className="ml-1 text-base font-medium text-green-300/80">
                     {s.unit}
                   </span>
                 </dd>
@@ -269,12 +269,12 @@ export default function Hero() {
             <Seal lines={hero.sealText} />
           </div>
 
-          <div className="relative rounded-3xl border border-gold-400/25 bg-navy-950/80 p-5 shadow-[0_24px_64px_rgb(0_0_0/0.4)] backdrop-blur-sm sm:p-7">
+          <div className="relative rounded-3xl border border-green-400/25 bg-navy-950/80 p-5 shadow-[0_24px_64px_rgb(0_0_0/0.4)] backdrop-blur-sm sm:p-7">
             <div className="flex items-baseline justify-between border-b border-white/10 pb-3">
               <p className="font-display text-sm font-semibold tracking-[0.2em] text-cream">
                 {hero.chartCard.title}
               </p>
-              <p className="font-latin text-[0.65rem] uppercase tracking-[0.3em] text-gold-300/80">
+              <p className="font-latin text-[0.65rem] uppercase tracking-[0.3em] text-green-300/80">
                 {hero.chartCard.en}
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function Hero() {
                   i === 0 ? "-right-3 top-1/4" : "-left-3 bottom-24"
                 }`}
               >
-                {Icon && <Icon className="h-4 w-4 text-gold-300" />}
+                {Icon && <Icon className="h-4 w-4 text-green-300" />}
                 <span className="text-sm font-medium text-cream">
                   {card.text}
                 </span>

@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* 文章头 */}
           <header className="mt-8">
             <div className="flex items-center gap-3">
-              <span className="rounded-full bg-navy-800 px-3.5 py-1.5 text-xs font-bold text-gold-300">
+              <span className="rounded-full bg-navy-800 px-3.5 py-1.5 text-xs font-bold text-green-300">
                 {post.category}
               </span>
               <time dateTime={post.date} className="font-latin text-sm tabular-nums text-ink-mute">
@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span className="inline-flex items-center gap-1.5">
                 <span
                   aria-hidden="true"
-                  className="flex h-6 w-6 items-center justify-center rounded-full bg-navy-800 text-[0.7rem] font-bold text-gold-300"
+                  className="flex h-6 w-6 items-center justify-center rounded-full bg-navy-800 text-[0.7rem] font-bold text-green-300"
                 >
                   {blogUi.authorAvatarChar}
                 </span>
@@ -164,14 +164,14 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={blogUi.cta.buttonHref}
-                className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300"
+                className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300"
               >
                 {blogUi.cta.button}
                 <IconArrowRight className="h-4.5 w-4.5" />
               </Link>
               <a
                 href={store.phoneHref}
-                className="font-latin text-base font-semibold text-gold-300 transition-colors duration-200 hover:text-gold-400"
+                className="font-latin text-base font-semibold text-green-300 transition-colors duration-200 hover:text-green-400"
               >
                 {store.phoneDisplay}
               </a>
@@ -197,7 +197,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="mx-auto mt-14 max-w-3xl px-5 text-center sm:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-green-700"
           >
             <IconChevronDown className="h-4 w-4 rotate-90" />
             {blogUi.backLabel}

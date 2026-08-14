@@ -6,9 +6,11 @@
 
 ---
 
-**Project:** 佳视眼镜
-**Generated:** 2026-08-13 12:18:25
-**Category:** Link-in-Bio Page Builder
+**Project:** E视眼镜（EVISION OPTICAL）
+**Generated:** 2026-08-14（2026-08-14 品牌改名 + 金→绿换色时校准）
+**Category:** Optical Retail Landing Page
+
+> ⚠️ 本文件为设计参考；**实际唯一权威色板/字体在 `app/globals.css` 的 `@theme` 块**，两者冲突时以代码为准。
 
 ---
 
@@ -16,32 +18,28 @@
 
 ### Color Palette
 
-| Role | Hex | CSS Variable |
+| Role | Hex | CSS Variable（实际） |
 |------|-----|--------------|
-| Primary | `#1E3A5F` | `--color-primary` |
-| On Primary | `#FFFFFF` | `--color-on-primary` |
-| Secondary | `#2563EB` | `--color-secondary` |
-| Accent/CTA | `#A16207` | `--color-accent` |
-| Background | `#F8FAFC` | `--color-background` |
-| Foreground | `#0F172A` | `--color-foreground` |
-| Muted | `#E9EEF5` | `--color-muted` |
-| Border | `#CBD5E1` | `--color-border` |
-| Destructive | `#DC2626` | `--color-destructive` |
-| Ring | `#1E3A5F` | `--color-ring` |
+| Primary（海军蓝） | `#1E3A5F` | `--color-navy-800` |
+| 深蓝（深色区底） | `#14253A` / `#0F1E31` | `--color-navy-900` / `--color-navy-950` |
+| Accent/CTA（翡翠绿） | `#2FA06E` | `--color-green-400` |
+| 浅绿（深底文字） | `#7AD4AB` | `--color-green-300` |
+| 深绿（浅底文字） | `#157049` | `--color-green-600` |
+| 绿 hover | `#0E5738` | `--color-green-700` |
+| Background（暖纸白） | `#F8F6F1` | `--color-paper` |
+| 卡片白 | `#FCFBF8` | `--color-cream` |
+| Foreground | `#0F172A` | `--color-ink` |
+| Border | `#E8E3D7` | `--color-line` |
 
-**Color Notes:** Academic navy + gold keynote + track chips
+**Color Notes:** Academic navy + emerald green（医疗视光、健康自然）。品牌 Logo：蓝色上弧 + 绿色下弧的「眼睛」轮廓，蓝=专业科技，绿=健康自然。
 
 ### Typography
 
-- **Heading Font:** Crimson Pro
-- **Body Font:** Atkinson Hyperlegible
-- **Mood:** academic, research, scholarly, accessible, readable, educational
-- **Google Fonts:** [Crimson Pro + Atkinson Hyperlegible](https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Crimson+Pro:wght@400;500;600;700&display=swap)
-
-**CSS Import:**
-```css
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Crimson+Pro:wght@400;500;600;700&display=swap');
-```
+- **Heading Font:** Noto Serif SC（宋体标题，书卷气；`--font-display`）
+- **Body Font:** Noto Sans SC（`--font-sans`）
+- **Latin Font:** Outfit（英文眉题/数字，`--font-latin`，小字号大间距全大写）
+- **Mood:** academic, optical, professional, trustworthy, calm
+- **Fonts:** 经 `next/font` 自托管（app/layout.tsx），无外部请求
 
 ### Spacing Variables
 
@@ -158,13 +156,13 @@
 
 ## Style Guidelines
 
-**Style:** Vibrant & Block-based
+**Style:** Academic Optical（蓝绿视光医疗感）
 
-**Keywords:** Bold, energetic, playful, block layout, geometric shapes, high color contrast, duotone, modern, energetic
+**Keywords:** 宋体标题、海军蓝深色区、翡翠绿点缀、暖纸白底、细线装饰、滚动渐入
 
-**Best For:** Startups, creative agencies, gaming, social media, youth-focused, entertainment, consumer
+**Best For:** 眼镜/视光零售、医疗健康、专业服务
 
-**Key Effects:** Large sections (48px+ gaps), animated patterns, bold hover (color shift), scroll-snap, large type (32px+), 200-300ms
+**Key Effects:** 滚动渐入（.reveal）、卡片入场（.card-in）、悬浮动画（.animate-float）、200-500ms 缓动
 
 ### Page Pattern
 

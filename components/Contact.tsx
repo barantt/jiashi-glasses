@@ -61,15 +61,15 @@ export default function Contact() {
       />
       <div
         aria-hidden="true"
-        className="absolute -bottom-40 -right-24 h-[30rem] w-[30rem] rounded-full bg-gold-400/10 blur-3xl"
+        className="absolute -bottom-40 -right-24 h-[30rem] w-[30rem] rounded-full bg-green-400/10 blur-3xl"
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         {/* 门店信息 */}
         <div>
           <p className="flex items-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-300 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-300 sm:text-sm">
               {contactSection.eyebrow}
             </span>
           </p>
@@ -84,7 +84,7 @@ export default function Contact() {
 
           <ul className="mt-10 space-y-6">
             <li className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-gold-300">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-green-300">
                 <IconMapPin className="h-5.5 w-5.5" />
               </span>
               <span>
@@ -97,7 +97,7 @@ export default function Contact() {
               </span>
             </li>
             <li className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-gold-300">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-green-300">
                 <IconClock className="h-5.5 w-5.5" />
               </span>
               <span>
@@ -110,7 +110,7 @@ export default function Contact() {
               </span>
             </li>
             <li className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-gold-300">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-green-300">
                 <IconPhone className="h-5.5 w-5.5" />
               </span>
               <span>
@@ -119,7 +119,7 @@ export default function Contact() {
                 </span>
                 <a
                   href={store.phoneHref}
-                  className="mt-1 block font-latin text-lg font-semibold text-cream transition-colors duration-200 hover:text-gold-300"
+                  className="mt-1 block font-latin text-lg font-semibold text-cream transition-colors duration-200 hover:text-green-300"
                 >
                   {store.phoneDisplay}
                 </a>
@@ -135,7 +135,7 @@ export default function Contact() {
               aria-live="polite"
               className="flex min-h-[26rem] flex-col items-center justify-center text-center"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-400/15 text-gold-600">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-green-400/15 text-green-600">
                 <IconCheck className="h-8 w-8" />
               </span>
               <h3 className="mt-6 font-display text-2xl font-bold text-navy-900">
@@ -155,7 +155,7 @@ export default function Contact() {
           ) : (
             <>
               <h3 className="flex items-center gap-3 font-display text-2xl font-bold text-navy-900">
-                <IconCalendar className="h-6 w-6 text-gold-600" />
+                <IconCalendar className="h-6 w-6 text-green-600" />
                 {form.heading}
               </h3>
               <p className="mt-2 text-sm text-ink-mute">{form.subHeading}</p>
@@ -253,7 +253,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                 >
                   {submitting ? form.submitting : form.submit}
                 </button>

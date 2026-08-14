@@ -24,7 +24,7 @@
 /** 门店信息 */
 export const store = {
   /** 完整地址（Contact 区块展示，含旗舰店后缀） */
-  addressLine: "幸福路 88 号 · 第一中学对面（佳视眼镜旗舰店）",
+  addressLine: "幸福路 88 号 · 第一中学对面（E视眼镜旗舰店）",
   /** 简版地址（页脚 / JSON-LD 用） */
   addressShort: "幸福路 88 号 · 第一中学对面",
   /** 页面显示的电话号码 */

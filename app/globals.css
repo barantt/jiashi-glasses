@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ============================================================
-   佳视眼镜 · 精致学院风设计令牌
-   主色：学术海军蓝 / 暖金点缀 / 暖纸白
+   E视眼镜 · 蓝绿视光医疗风设计令牌
+   主色：学术海军蓝 / 翡翠绿点缀（健康、自然）/ 暖纸白
    ============================================================ */
 
 @theme {
@@ -17,12 +17,12 @@
   --color-navy-900: #14253a;
   --color-navy-950: #0f1e31;
 
-  /* 暖金（精致点缀、CTA） */
-  --color-gold-300: #ead088;
-  --color-gold-400: #d4af37;
-  --color-gold-500: #c9a227;
-  --color-gold-600: #a8841b;
-  --color-gold-700: #7e6113;
+  /* 翡翠绿（医疗视光、健康自然；hue≈155°，明度层级 300 浅 → 700 深） */
+  --color-green-300: #7ad4ab;
+  --color-green-400: #2fa06e;
+  --color-green-500: #1f8a5b;
+  --color-green-600: #157049;
+  --color-green-700: #0e5738;
 
   /* 纸感底色与墨色 */
   --color-paper: #f8f6f1;
@@ -77,7 +77,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-gold-400);
+  background: var(--color-green-400);
   color: var(--color-navy-950);
 }
 
@@ -87,7 +87,7 @@ section[id] {
 
 /* 焦点可见性（键盘导航） */
 :focus-visible {
-  outline: 2px solid var(--color-gold-500);
+  outline: 2px solid var(--color-green-500);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -160,13 +160,13 @@ section[id] {
 
 /* ---------- 装饰：双细线（学院风元素） ---------- */
 
-.rule-gold {
+.rule-green {
   display: inline-block;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    var(--color-gold-400),
+    var(--color-green-400),
     transparent
   );
 }
@@ -233,13 +233,13 @@ section[id] {
 }
 
 .article-body a:hover {
-  color: var(--color-gold-700);
+  color: var(--color-green-700);
 }
 
 .article-body blockquote {
   margin-top: 1.6rem;
   padding: 0.9rem 1.3rem;
-  border-left: 3px solid var(--color-gold-400);
+  border-left: 3px solid var(--color-green-400);
   background: var(--color-cream);
   color: var(--color-ink-mute);
   font-size: 0.92rem;

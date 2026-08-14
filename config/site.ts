@@ -28,11 +28,11 @@ export const siteUrl =
 /** 品牌基础信息 */
 export const brand = {
   /** 中文名（导航栏 / 页脚 / 标题等） */
-  name: "佳视眼镜",
+  name: "E视眼镜",
   /** 英文大写（版权行、JSON-LD 结构化数据） */
-  nameEn: "JIASHI OPTICAL",
+  nameEn: "EVISION OPTICAL",
   /** 英文首字母大写（导航栏副标、Hero 眉题） */
-  nameLatin: "Jiashi Optical",
+  nameLatin: "Evision Optical",
   /** 品牌标语（页脚展示） */
   slogan: "看见，更美的世界。专注学生近视配镜十四年，用心对待每一双眼睛。",
   /** 创立年份 */
@@ -89,13 +89,13 @@ export const brandFacts = {
  */
 export const seo = {
   /** 默认页面标题（首页等未单独设置标题的页面） */
-  titleDefault: "佳视眼镜 JIASHI OPTICAL｜学生近视配镜 · 专业验光",
+  titleDefault: "E视眼镜 EVISION OPTICAL｜学生近视配镜 · 专业验光",
   /** 子页面标题模板，%s 会被页面自身标题替换 */
-  titleTemplate: "%s｜佳视眼镜",
+  titleTemplate: "%s｜E视眼镜",
   description:
-    "佳视眼镜专注学生近视配镜十四年，21 步医学验光、轻至 8 克的航空钛镜架、延缓近视加深的功能性镜片，同时提供时尚太阳镜与精准老花镜验配。",
+    "E视眼镜专注学生近视配镜十四年，21 步医学验光、轻至 8 克的航空钛镜架、延缓近视加深的功能性镜片，同时提供时尚太阳镜与精准老花镜验配。",
   keywords: [
-    "佳视眼镜",
+    "E视眼镜",
     "学生配镜",
     "近视眼镜",
     "医学验光",
@@ -103,18 +103,18 @@ export const seo = {
     "老花镜",
   ],
   og: {
-    title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
+    title: "E视眼镜 EVISION OPTICAL｜看清世界，从E视开始",
     description:
       "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
     url: "/",
     locale: "zh_CN",
     type: "website",
-    siteName: "佳视眼镜 JIASHI OPTICAL",
-    imageAlt: "佳视眼镜 JIASHI OPTICAL — 看清世界，从佳视开始",
+    siteName: "E视眼镜 EVISION OPTICAL",
+    imageAlt: "E视眼镜 EVISION OPTICAL — 看清世界，从E视开始",
   },
   twitter: {
     card: "summary_large_image",
-    title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
+    title: "E视眼镜 EVISION OPTICAL｜看清世界，从E视开始",
     description:
       "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
   },

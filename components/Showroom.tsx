@@ -38,11 +38,11 @@ export default function Showroom() {
         {/* 标题 */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-600 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-600 sm:text-sm">
               {showroomSection.eyebrow}
             </span>
-            <span className="rule-gold w-10" />
+            <span className="rule-green w-10" />
           </p>
           <h2 className="mt-5 font-display text-3xl font-bold text-navy-900 sm:text-4xl lg:text-[2.6rem] lg:leading-tight">
             {showroomSection.title}
@@ -70,7 +70,7 @@ export default function Showroom() {
               onClick={() => setActive(c)}
               className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 sm:px-6 ${
                 active === c
-                  ? "bg-navy-800 text-gold-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)]"
+                  ? "bg-navy-800 text-green-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)]"
                   : "bg-paper text-ink-soft hover:bg-navy-50 hover:text-navy-800"
               }`}
             >
@@ -113,7 +113,7 @@ export default function Showroom() {
               </div>
 
               <div className="flex flex-1 flex-col p-5 sm:p-6">
-                <p className="font-latin text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-gold-600">
+                <p className="font-latin text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-green-600">
                   {p.category}
                 </p>
                 <h3 className="mt-1.5 font-display text-lg font-bold text-navy-900">
@@ -121,12 +121,12 @@ export default function Showroom() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-mute">{p.spec}</p>
                 <div className="mt-auto flex items-center justify-between pt-5">
-                  <span className="font-latin text-base font-semibold tabular-nums text-gold-700">
+                  <span className="font-latin text-base font-semibold tabular-nums text-green-700">
                     {p.price}
                   </span>
                   <a
                     href={showroomSection.ctaHref}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-green-700"
                   >
                     {showroomSection.ctaLabel}
                     <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />

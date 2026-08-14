@@ -32,7 +32,7 @@ export const categories = [
 export type Category = (typeof categories)[number];
 
 /** 文章未写 author 时的默认作者 */
-export const defaultAuthor = "佳视视光团队";
+export const defaultAuthor = "E视视光团队";
 
 /** 文章未写 cover 时的默认封面（config/photos.ts 中 blogPhotos 的 key） */
 export const defaultCover = "default";
@@ -62,7 +62,7 @@ export const blogUi = {
   breadcrumbHome: "首页",
   breadcrumbBlog: "护眼博客",
   /** 详情页作者头像占位字 */
-  authorAvatarChar: "佳",
+  authorAvatarChar: "E",
   /** 详情页底部预约 CTA */
   cta: {
     title: "眼睛的问题，值得当面聊一聊",
@@ -81,17 +81,17 @@ export const blogSeo = {
   /** 列表页页面标题 */
   title: "护眼博客｜眼镜与眼健康科普",
   description:
-    "佳视眼镜护眼博客：近视防控、学生护眼、眼镜选购、长辈视界 —— 用专业验光师的知识，讲清楚每一件和眼睛有关的小事。",
-  ogTitle: "护眼博客｜佳视眼镜",
+    "E视眼镜护眼博客：近视防控、学生护眼、眼镜选购、长辈视界 —— 用专业验光师的知识，讲清楚每一件和眼睛有关的小事。",
+  ogTitle: "护眼博客｜E视眼镜",
   ogDescription:
     "近视防控、学生护眼、眼镜选购、长辈视界 —— 眼镜与眼健康的实用科普。",
   /** RSS feed（/feed.xml）的标题与描述 */
-  feedTitle: "佳视眼镜 · 护眼博客",
+  feedTitle: "E视眼镜 · 护眼博客",
   feedDescription:
     "近视防控、学生护眼、眼镜选购、长辈视界 —— 眼镜与眼健康的实用科普。",
   /** 列表页 Blog JSON-LD */
   jsonLd: {
-    blogName: "佳视眼镜护眼博客",
+    blogName: "E视眼镜护眼博客",
     blogDesc: "眼镜与眼健康科普：近视防控、学生护眼、眼镜选购、长辈视界。",
   },
 };

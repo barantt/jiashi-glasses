@@ -73,7 +73,7 @@ export default function PostCard({
           </span>
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-green-700"
           >
             {blogUi.readMore}
             <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />

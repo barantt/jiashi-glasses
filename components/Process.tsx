@@ -6,11 +6,11 @@ export default function Process() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3">
-            <span className="rule-gold w-10" />
-            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-600 sm:text-sm">
+            <span className="rule-green w-10" />
+            <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-green-600 sm:text-sm">
               {processSection.eyebrow}
             </span>
-            <span className="rule-gold w-10" />
+            <span className="rule-green w-10" />
           </p>
           <h2 className="mt-5 font-display text-3xl font-bold text-navy-900 sm:text-4xl lg:text-[2.6rem] lg:leading-tight">
             {processSection.title}
@@ -28,7 +28,7 @@ export default function Process() {
           />
           {processSteps.map((s, i) => (
             <li key={s.id} className="relative flex gap-4 lg:flex-col lg:gap-0 lg:text-center">
-              <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-800 font-latin text-sm font-semibold text-gold-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)] lg:mx-auto">
+              <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-800 font-latin text-sm font-semibold text-green-300 shadow-[0_6px_16px_rgb(30_58_95/0.25)] lg:mx-auto">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="lg:mt-5">
