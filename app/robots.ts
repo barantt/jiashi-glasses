@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 
+// 静态导出（output: "export"）要求路由显式声明静态
+export const dynamic = "force-static";
+
 /**
  * 爬虫访问规则。
  * - 搜索爬虫（Google / Bing / 百度 / AI 搜索）全部放行；

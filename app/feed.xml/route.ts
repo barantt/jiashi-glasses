@@ -1,6 +1,9 @@
 import { getPosts } from "@/lib/blog";
 import { siteUrl } from "@/lib/site";
 
+// 静态导出（output: "export"）：构建期生成静态 XML
+export const dynamic = "force-static";
+
 /** XML 转义 */
 function esc(s: string): string {
   return s
