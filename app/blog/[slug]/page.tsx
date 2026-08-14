@@ -164,7 +164,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={blogUi.cta.buttonHref}
-                className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300"
+                className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(88_185_37/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300"
               >
                 {blogUi.cta.button}
                 <IconArrowRight className="h-4.5 w-4.5" />

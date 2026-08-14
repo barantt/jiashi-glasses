@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IconMenu, IconX, LogoMark } from "./icons";
 import { navLinks, navCta } from "@/config/navigation";
-import { brand } from "@/config/site";
 
 export default function Nav({
   variant = "overlay",
@@ -58,7 +57,7 @@ export default function Nav({
         aria-label="主导航"
         className={`mx-auto flex items-center justify-between transition-all duration-300 ${navShape}`}
       >
-        {/* 品牌 */}
+        {/* 品牌（Logo 图自带文字；顶部未滚动时放大显示） */}
         <Link
           href="/#top"
           className="group flex shrink-0 items-center gap-3"
@@ -66,25 +65,9 @@ export default function Nav({
         >
           <LogoMark
             className={`transition-transform duration-300 group-hover:-rotate-6 ${
-              scrolled ? "h-8 w-8" : "h-9 w-9"
+              scrolled ? "h-8 w-auto" : "h-12 w-auto"
             }`}
           />
-          <span className="flex flex-col leading-tight">
-            <span
-              className={`font-display text-lg font-bold tracking-wide ${
-                overlay ? "text-cream" : "text-navy-900"
-              }`}
-            >
-              {brand.name}
-            </span>
-            <span
-              className={`font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] ${
-                overlay ? "text-green-300" : "text-green-600"
-              }`}
-            >
-              {brand.nameLatin}
-            </span>
-          </span>
         </Link>
 
         {/* 桌面端链接 */}
@@ -113,7 +96,7 @@ export default function Nav({
         <div className="flex shrink-0 items-center gap-3">
           <Link
             href={navCta.href}
-            className={`hidden rounded-full bg-green-400 font-semibold text-navy-950 shadow-[0_4px_16px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 sm:inline-flex ${
+            className={`hidden rounded-full bg-green-400 font-semibold text-navy-950 shadow-[0_4px_16px_rgb(88_185_37/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 sm:inline-flex ${
               scrolled ? "px-5 py-2 text-sm" : "px-6 py-2.5 text-[0.95rem]"
             }`}
           >

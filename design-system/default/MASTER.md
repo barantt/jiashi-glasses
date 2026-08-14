@@ -22,16 +22,17 @@
 |------|-----|--------------|
 | Primary（海军蓝） | `#1E3A5F` | `--color-navy-800` |
 | 深蓝（深色区底） | `#14253A` / `#0F1E31` | `--color-navy-900` / `--color-navy-950` |
-| Accent/CTA（翡翠绿） | `#2FA06E` | `--color-green-400` |
-| 浅绿（深底文字） | `#7AD4AB` | `--color-green-300` |
-| 深绿（浅底文字） | `#157049` | `--color-green-600` |
-| 绿 hover | `#0E5738` | `--color-green-700` |
+| **品牌蓝**（Logo 蓝弧） | `#0158EA` | —（用于 Logo/favicon） |
+| Accent/CTA（**品牌绿**） | `#58B925` | `--color-green-400` |
+| 浅绿（深底文字） | `#8FD85F` | `--color-green-300` |
+| 深绿（浅底文字） | `#3C8019` | `--color-green-600` |
+| 绿 hover | `#2F6313` | `--color-green-700` |
 | Background（暖纸白） | `#F8F6F1` | `--color-paper` |
 | 卡片白 | `#FCFBF8` | `--color-cream` |
 | Foreground | `#0F172A` | `--color-ink` |
 | Border | `#E8E3D7` | `--color-line` |
 
-**Color Notes:** Academic navy + emerald green（医疗视光、健康自然）。品牌 Logo：蓝色上弧 + 绿色下弧的「眼睛」轮廓，蓝=专业科技，绿=健康自然。
+**Color Notes:** 官方品牌色：绿 `#58B925`（健康、自然）+ 蓝 `#0158EA`（专业、科技）。站点主色为海军蓝 + 品牌绿（绿色阶以 #58B925 为基准）；品牌蓝用于 Logo 图形（public/eshiglasses-logo.png 与 app/icon.svg）。Logo 在深色底上通过白色衬底（Nav overlay / Footer）保证可见性。
 
 ### Typography
 

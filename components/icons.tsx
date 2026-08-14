@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import Image from "next/image";
 
 /**
  * E视眼镜图标集 —— 统一线性风格：1.5px 描边、圆角端点
@@ -172,38 +173,18 @@ export function IconChevronDown(props: IconProps) {
 }
 
 /**
- * 品牌标志：蓝绿「眼睛」徽章 ——
- * 蓝色上弧（眼睑/镜片上缘）+ 绿色下弧构成眼睛轮廓，中心嵌品牌首字母 E。
- * 完整锁版 = 本徽章 + 旁边的品牌文字（Nav/Footer 的 HTML 文本）。
+ * 品牌标志：使用 public/eshiglasses-logo.png（真实 Logo 锁版，含文字）。
+ * 用法：固定高度 + w-auto（图是横向锁版，勿设置正方形宽高）。
+ * 注意：图片透明背景，深色区（Hero overlay）下的可见性取决于 Logo 自身配色。
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" aria-hidden="true" className={className}>
-      <circle cx="32" cy="32" r="31" fill="#1e3a5f" stroke="#2fa06e" strokeWidth="2" />
-      {/* 上弧：专业、清晰（蓝） */}
-      <path
-        d="M13 32C18 17 46 17 51 32"
-        stroke="#5b8ec0"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* 下弧：健康、自然（绿） */}
-      <path
-        d="M51 32C46 47 18 47 13 32"
-        stroke="#2fa06e"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* 中心 E 字（描边绘制，无字体依赖） */}
-      <path
-        d="M27.5 24.5V39.5M27.5 24.5H39.5M27.5 32H36.5M27.5 39.5H39.5"
-        stroke="#fcfbf8"
-        strokeWidth="3"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
+    <Image
+      src="/eshiglasses-logo.png"
+      alt="E视眼镜"
+      width={1536}
+      height={1024}
+      className={className}
+    />
   );
 }

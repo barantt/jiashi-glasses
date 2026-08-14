@@ -253,7 +253,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(88_185_37/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                 >
                   {submitting ? form.submitting : form.submit}
                 </button>

@@ -11,14 +11,8 @@ export default function Footer() {
           {/* 品牌 */}
           <div>
             <a href="#top" className="inline-flex items-center gap-3">
-              <LogoMark className="h-10 w-10" />
-              <span className="flex flex-col leading-tight">
-                <span className="font-display text-lg font-bold text-cream">
-                  {brand.name}
-                </span>
-                <span className="font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] text-green-300">
-                  {brand.nameLatin}
-                </span>
+              <span className="inline-flex items-center rounded-xl bg-white/95 px-2.5 py-1.5 shadow-[0_4px_16px_rgb(0_0_0/0.3)]">
+                <LogoMark className="h-11 w-auto" />
               </span>
             </a>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-navy-200/80">

@@ -68,7 +68,7 @@ function EyeChart() {
               textAnchor="end"
               fontFamily="var(--font-outfit), sans-serif"
               fontSize="13"
-              fill="#2fa06e"
+              fill="#58b925"
             >
               {row.acuity}
             </text>
@@ -82,7 +82,7 @@ function EyeChart() {
         fontFamily="var(--font-outfit), sans-serif"
         fontSize="16"
         letterSpacing="4"
-        fill="#2fa06e"
+        fill="#58b925"
       >
         5.0
       </text>
@@ -132,20 +132,20 @@ function HeroGlasses() {
         />
         <path
           d="M28 92l16-16"
-          stroke="#2fa06e"
+          stroke="#58b925"
           strokeWidth="3"
           strokeLinecap="round"
           opacity="0.85"
         />
         <path
           d="M170 92l16-16"
-          stroke="#2fa06e"
+          stroke="#58b925"
           strokeWidth="3"
           strokeLinecap="round"
           opacity="0.85"
         />
-        <circle cx="10" cy="62" r="3.2" fill="#2fa06e" />
-        <circle cx="250" cy="62" r="3.2" fill="#2fa06e" />
+        <circle cx="10" cy="62" r="3.2" fill="#58b925" />
+        <circle cx="250" cy="62" r="3.2" fill="#58b925" />
       </g>
     </svg>
   );
@@ -159,8 +159,8 @@ function Seal({ lines }: { lines: string[] }) {
       aria-hidden="true"
       className="h-20 w-20 drop-shadow-[0_6px_16px_rgb(0_0_0/0.35)] sm:h-24 sm:w-24"
     >
-      <circle cx="48" cy="48" r="45" fill="#0f1e31" stroke="#2fa06e" strokeWidth="2.5" />
-      <circle cx="48" cy="48" r="35" fill="none" stroke="#2fa06e" strokeWidth="1" />
+      <circle cx="48" cy="48" r="45" fill="#0f1e31" stroke="#58b925" strokeWidth="2.5" />
+      <circle cx="48" cy="48" r="35" fill="none" stroke="#58b925" strokeWidth="1" />
       {lines.map((line, i) => (
         <text
           key={line}
@@ -170,7 +170,7 @@ function Seal({ lines }: { lines: string[] }) {
           fontFamily="var(--font-serif-sc), serif"
           fontSize="21"
           fontWeight="700"
-          fill="#2fa06e"
+          fill="#58b925"
         >
           {line}
         </text>
@@ -234,7 +234,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href={hero.ctaPrimary.href}
-              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0"
+              className="inline-flex items-center gap-2 rounded-full bg-green-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(88_185_37/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-300 active:translate-y-0"
             >
               {hero.ctaPrimary.label}
               <IconArrowRight className="h-4.5 w-4.5" />

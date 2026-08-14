@@ -17,12 +17,12 @@
   --color-navy-900: #14253a;
   --color-navy-950: #0f1e31;
 
-  /* 翡翠绿（医疗视光、健康自然；hue≈155°，明度层级 300 浅 → 700 深） */
-  --color-green-300: #7ad4ab;
-  --color-green-400: #2fa06e;
-  --color-green-500: #1f8a5b;
-  --color-green-600: #157049;
-  --color-green-700: #0e5738;
+  /* 品牌绿（官方 Logo 绿 #58b925 为基准，明度层级 300 浅 → 700 深） */
+  --color-green-300: #8fd85f;
+  --color-green-400: #58b925;
+  --color-green-500: #4aa31d;
+  --color-green-600: #3c8019;
+  --color-green-700: #2f6313;
 
   /* 纸感底色与墨色 */
   --color-paper: #f8f6f1;
