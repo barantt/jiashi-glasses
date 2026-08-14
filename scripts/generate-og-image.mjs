@@ -61,7 +61,7 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
   </g>
 </svg>`;
 
-const iconSvg = readFileSync(path.join(root, "app/icon.svg"), "utf8");
+const iconSvg = readFileSync(path.join(root, "app/icon.png"));
 
 const fontFiles = Object.values(FONTS).map((f) => path.join(fontDir, f));
 

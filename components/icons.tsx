@@ -173,17 +173,18 @@ export function IconChevronDown(props: IconProps) {
 }
 
 /**
- * 品牌标志：使用 public/eshiglasses-logo.png（真实 Logo 锁版，含文字）。
+ * 品牌标志：使用 public/eshiglasses-logo.webp（真实 Logo 锁版，含文字；
+ * 由 eshiglasses-logo.png 压缩而来，43KB）。priority 保证首屏立即加载。
  * 用法：固定高度 + w-auto（图是横向锁版，勿设置正方形宽高）。
- * 注意：图片透明背景，深色区（Hero overlay）下的可见性取决于 Logo 自身配色。
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <Image
-      src="/eshiglasses-logo.png"
+      src="/eshiglasses-logo.webp"
       alt="E视眼镜"
-      width={1536}
-      height={1024}
+      width={768}
+      height={512}
+      priority
       className={className}
     />
   );
