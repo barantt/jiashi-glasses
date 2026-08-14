@@ -1,12 +1,22 @@
 /**
- * 图片数据数组 —— 目前为 Unsplash 占位图，全部 URL 已验证可用。
- *
- * 【换真实照片的方法】
- * 1. 把照片放进 public/photos/ 目录；
- * 2. 把对应条目的 src 改成 "/photos/你的文件名.jpg"（width/height 填实际像素）；
- * 3. 重新 build 即可，无需改动任何组件代码。
- *
- * 注意：Unsplash 图片服务在中国大陆访问可能不稳定，上线前请替换为自有图床或本地图片。
+ * ============================================================
+ * 【这是什么数据】全站图片数据 —— 目前为 Unsplash 占位图，
+ *   全部 URL 已验证可用。分三组：
+ *   - productPhotos：产品展示区（Showroom）12 款产品的图片
+ *   - linePhotos：产品系列（Products）三大业务线的图片
+ *   - blogPhotos：博客封面图，key 为文章 frontmatter 的 cover 字段
+ * 【在哪里被使用】
+ *   - components/Photo.tsx（通用图片组件）消费 Photo 类型
+ *   - config/products.ts 的 productSeries.photo / showroomProducts.variant
+ *   - components/blog/BlogCover.tsx 按 cover 字段取 blogPhotos
+ * 【修改时注意什么】
+ *   - 换真实照片：把照片放进 public/photos/ 目录，把 src 改成
+ *     "/photos/你的文件名.jpg"（width/height 填实际像素），重新 build
+ *   - key 是契约：改 key 必须同步改 config/products.ts 的 variant、
+ *     以及 content/blog/*.md 的 cover 字段
+ *   - Unsplash 图片服务在中国大陆访问可能不稳定，上线前请替换为
+ *     国内图床（OSS/CDN）地址
+ * ============================================================
  */
 
 export interface Photo {
@@ -25,7 +35,7 @@ export interface Photo {
 const unsplash = (id: string, w: number, h: number) =>
   `https://images.unsplash.com/photo-${id}?q=80&w=${w}&h=${h}&auto=format&fit=crop`;
 
-/** 产品展示区（Showroom）12 款产品的图片，key 与原插画变体名一致 */
+/** 产品展示区（Showroom）12 款产品的图片，key 与产品 variant 一致 */
 export const productPhotos: Record<string, Photo> = {
   // 镜片
   "lens-dim": {
