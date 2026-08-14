@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC, Outfit } from "next/font/google";
-import { siteUrl } from "@/lib/site";
+import { ogImage, seo, siteUrl } from "@/config/site";
 import "./globals.css";
 
 const serifSC = Noto_Serif_SC({
@@ -21,48 +21,39 @@ const outfit = Outfit({
   display: "swap",
 });
 
+/** 全站 metadata —— 文案与品牌名来自 config/site.ts 的 seo / ogImage */
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },
   title: {
-    default: "佳视眼镜 JIASHI OPTICAL｜学生近视配镜 · 专业验光",
-    template: "%s｜佳视眼镜",
+    default: seo.titleDefault,
+    template: seo.titleTemplate,
   },
-  description:
-    "佳视眼镜专注学生近视配镜十四年，21 步医学验光、轻至 8 克的航空钛镜架、延缓近视加深的功能性镜片，同时提供时尚太阳镜与精准老花镜验配。",
-  keywords: [
-    "佳视眼镜",
-    "学生配镜",
-    "近视眼镜",
-    "医学验光",
-    "太阳镜",
-    "老花镜",
-  ],
+  description: seo.description,
+  keywords: seo.keywords,
   openGraph: {
-    title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
-    description:
-      "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
-    url: "/",
-    locale: "zh_CN",
-    type: "website",
-    siteName: "佳视眼镜 JIASHI OPTICAL",
+    title: seo.og.title,
+    description: seo.og.description,
+    url: seo.og.url,
+    locale: seo.og.locale,
+    type: seo.og.type,
+    siteName: seo.og.siteName,
     images: [
       {
-        url: "/og-image.png",
+        url: ogImage,
         width: 1200,
         height: 630,
-        alt: "佳视眼镜 JIASHI OPTICAL — 看清世界，从佳视开始",
+        alt: seo.og.imageAlt,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "佳视眼镜 JIASHI OPTICAL｜看清世界，从佳视开始",
-    description:
-      "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
-    images: ["/og-image.png"],
+    card: seo.twitter.card,
+    title: seo.twitter.title,
+    description: seo.twitter.description,
+    images: [ogImage],
   },
 };
 

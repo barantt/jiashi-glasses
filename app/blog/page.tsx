@@ -3,31 +3,31 @@ import BlogFilters from "@/components/blog/BlogFilters";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { getPostSummaries, categories } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { blogPage, blogSeo } from "@/config/blog";
+import { brand, ogImage, siteUrl } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "护眼博客｜眼镜与眼健康科普",
-  description:
-    "佳视眼镜护眼博客：近视防控、学生护眼、眼镜选购、长辈视界 —— 用专业验光师的知识，讲清楚每一件和眼睛有关的小事。",
+  title: blogSeo.title,
+  description: blogSeo.description,
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "护眼博客｜佳视眼镜",
-    description: "近视防控、学生护眼、眼镜选购、长辈视界 —— 眼镜与眼健康的实用科普。",
+    title: blogSeo.ogTitle,
+    description: blogSeo.ogDescription,
     url: "/blog",
     type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: ogImage, width: 1200, height: 630 }],
   },
 };
 
 const blogJsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "佳视眼镜护眼博客",
-  description: "眼镜与眼健康科普：近视防控、学生护眼、眼镜选购、长辈视界。",
+  name: blogSeo.jsonLd.blogName,
+  description: blogSeo.jsonLd.blogDesc,
   url: `${siteUrl}/blog`,
   publisher: {
     "@type": "Organization",
-    name: "佳视眼镜",
+    name: brand.name,
     url: `${siteUrl}/`,
   },
 };
@@ -52,15 +52,14 @@ export default function BlogPage() {
           <p className="flex items-center gap-3">
             <span className="rule-gold w-10" />
             <span className="font-latin text-xs font-semibold uppercase tracking-[0.3em] text-gold-300 sm:text-sm">
-              Eye Health Blog
+              {blogPage.eyebrow}
             </span>
           </p>
           <h1 className="mt-5 font-display text-3xl font-bold text-cream sm:text-4xl lg:text-5xl">
-            护眼博客
+            {blogPage.title}
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-navy-100 sm:text-lg">
-            近视防控、学生护眼、眼镜选购、长辈视界 ——
-            用验光师的知识，讲清楚每一件和眼睛有关的小事。
+            {blogPage.subtitle}
           </p>
         </div>
       </section>

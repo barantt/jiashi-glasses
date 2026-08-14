@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { siteUrl } from "@/config/site";
 
 // 静态导出（output: "export"）要求路由显式声明静态
 export const dynamic = "force-static";

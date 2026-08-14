@@ -1,12 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import {
+  categories,
+  defaultAuthor,
+  defaultCover,
+  readingSpeedCpm,
+} from "@/config/blog";
+import type { Category } from "@/config/blog";
+
+// 兼容旧 import 路径：分类枚举与类型从 config/blog.ts 转发出去
+export { categories } from "@/config/blog";
+export type { Category } from "@/config/blog";
 
 /** 博客内容目录 */
 const CONTENT_DIR = path.join(process.cwd(), "content/blog");
-
-export const categories = ["近视防控", "学生护眼", "眼镜选购", "长辈视界"] as const;
-export type Category = (typeof categories)[number];
 
 export interface Post {
   slug: string;
@@ -21,10 +29,10 @@ export interface Post {
   readMinutes: number;
 }
 
-/** 中文阅读速度约 400 字/分钟 */
+/** 中文阅读速度约 400 字/分钟（数值在 config/blog.ts 的 readingSpeedCpm） */
 function readMinutes(text: string): number {
   const chars = text.replace(/\s+/g, "").length;
-  return Math.max(1, Math.round(chars / 400));
+  return Math.max(1, Math.round(chars / readingSpeedCpm));
 }
 
 function readPost(file: string): Post {
@@ -42,8 +50,8 @@ function readPost(file: string): Post {
     description: String(data.description ?? ""),
     category: data.category as Category,
     date,
-    author: String(data.author ?? "佳视视光团队"),
-    cover: String(data.cover ?? "default"),
+    author: String(data.author ?? defaultAuthor),
+    cover: String(data.cover ?? defaultCover),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     content,
     readMinutes: readMinutes(content),

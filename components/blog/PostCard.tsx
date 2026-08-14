@@ -3,6 +3,7 @@ import type { Post } from "@/lib/blog";
 import { formatDate } from "@/lib/format";
 import { IconArrowRight, IconClock } from "@/components/icons";
 import BlogCover from "./BlogCover";
+import { blogUi } from "@/config/blog";
 
 export type PostSummary = Omit<Post, "content">;
 
@@ -68,13 +69,13 @@ export default function PostCard({
         <div className="mt-auto flex items-center justify-between pt-6">
           <span className="inline-flex items-center gap-1.5 text-xs text-ink-mute">
             <IconClock className="h-3.5 w-3.5" />
-            阅读约 {post.readMinutes} 分钟
+            {blogUi.readMinutes(post.readMinutes)}
           </span>
           <Link
             href={`/blog/${post.slug}`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
           >
-            阅读全文
+            {blogUi.readMore}
             <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>

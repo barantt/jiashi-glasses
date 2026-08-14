@@ -1,5 +1,6 @@
 import { getPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { blogSeo } from "@/config/blog";
+import { siteUrl } from "@/config/site";
 
 // 静态导出（output: "export"）：构建期生成静态 XML
 export const dynamic = "force-static";
@@ -32,9 +33,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>佳视眼镜 · 护眼博客</title>
+    <title>${blogSeo.feedTitle}</title>
     <link>${siteUrl}/blog</link>
-    <description>近视防控、学生护眼、眼镜选购、长辈视界 —— 眼镜与眼健康的实用科普。</description>
+    <description>${blogSeo.feedDescription}</description>
     <language>zh-cn</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${items}

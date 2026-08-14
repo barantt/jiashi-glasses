@@ -1,9 +1,9 @@
 import Photo from "@/components/Photo";
-import { blogPhotos } from "@/lib/photos";
+import { blogPhotos } from "@/config/photos";
 
 /**
- * 博客封面 —— 按文章 frontmatter 的 cover 字段从 lib/photos.ts 取图。
- * 换真实封面图只需改 lib/photos.ts 中 blogPhotos 的对应条目。
+ * 博客封面 —— 按文章 frontmatter 的 cover 字段从 config/photos.ts 取图。
+ * 换真实封面图只需改 config/photos.ts 中 blogPhotos 的对应条目。
  */
 export default function BlogCover({ variant }: { variant: string }) {
   const photo = blogPhotos[variant] ?? blogPhotos.default;

@@ -3,15 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IconMenu, IconX, LogoMark } from "./icons";
-
-const links = [
-  { href: "/#products", label: "产品系列" },
-  { href: "/#showroom", label: "产品展示" },
-  { href: "/#process", label: "验光服务" },
-  { href: "/#students", label: "学生专区" },
-  { href: "/blog", label: "护眼博客" },
-  { href: "/#contact", label: "联系我们" },
-];
+import { navLinks, navCta } from "@/config/navigation";
+import { brand } from "@/config/site";
 
 export default function Nav({
   variant = "overlay",
@@ -82,14 +75,14 @@ export default function Nav({
                 overlay ? "text-cream" : "text-navy-900"
               }`}
             >
-              佳视眼镜
+              {brand.name}
             </span>
             <span
               className={`font-latin text-[0.6rem] font-medium uppercase tracking-[0.28em] ${
                 overlay ? "text-gold-300" : "text-gold-600"
               }`}
             >
-              Jiashi Optical
+              {brand.nameLatin}
             </span>
           </span>
         </Link>
@@ -100,8 +93,8 @@ export default function Nav({
             scrolled ? "gap-4 xl:gap-6" : "gap-4 xl:gap-7"
           }`}
         >
-          {links.map((l) => (
-            <li key={l.href}>
+          {navLinks.map((l) => (
+            <li key={l.id}>
               <Link
                 href={l.href}
                 className={`group relative py-2 font-medium transition-colors duration-200 ${
@@ -119,12 +112,12 @@ export default function Nav({
 
         <div className="flex shrink-0 items-center gap-3">
           <Link
-            href="/#contact"
+            href={navCta.href}
             className={`hidden rounded-full bg-gold-400 font-semibold text-navy-950 shadow-[0_4px_16px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0 sm:inline-flex ${
               scrolled ? "px-5 py-2 text-sm" : "px-6 py-2.5 text-[0.95rem]"
             }`}
           >
-            预约免费验光
+            {navCta.label}
           </Link>
 
           {/* 移动端菜单按钮 */}
@@ -153,8 +146,8 @@ export default function Nav({
         }`}
       >
         <ul className="space-y-1 px-5 py-4">
-          {links.map((l) => (
-            <li key={l.href}>
+          {navLinks.map((l) => (
+            <li key={l.id}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
@@ -166,11 +159,11 @@ export default function Nav({
           ))}
           <li className="pt-2">
             <Link
-              href="/#contact"
+              href={navCta.href}
               onClick={() => setOpen(false)}
               className="block rounded-full bg-gold-400 px-4 py-3 text-center text-base font-semibold text-navy-950"
             >
-              预约免费验光
+              {navCta.label}
             </Link>
           </li>
         </ul>

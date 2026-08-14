@@ -1,6 +1,8 @@
 import { IconArrowRight, IconCheck, IconSparkle } from "./icons";
+import { hero } from "@/config/hero";
 
 /* ---------------- 标准视力表（E 字表） ---------------- */
+/* 视力表行数据为 SVG 绘图参数（装饰图形），非业务数据，保留在组件内 */
 
 const ROWS = [
   { size: 56, count: 1, acuity: "0.1" },
@@ -149,8 +151,8 @@ function HeroGlasses() {
   );
 }
 
-/** 金色印章 */
-function Seal() {
+/** 金色印章（文字来自 config/hero.ts 的 sealText） */
+function Seal({ lines }: { lines: string[] }) {
   return (
     <svg
       viewBox="0 0 96 96"
@@ -159,40 +161,32 @@ function Seal() {
     >
       <circle cx="48" cy="48" r="45" fill="#0f1e31" stroke="#d4af37" strokeWidth="2.5" />
       <circle cx="48" cy="48" r="35" fill="none" stroke="#d4af37" strokeWidth="1" />
-      <text
-        x="48"
-        y="38"
-        textAnchor="middle"
-        fontFamily="var(--font-serif-sc), serif"
-        fontSize="21"
-        fontWeight="700"
-        fill="#d4af37"
-      >
-        佳视
-      </text>
-      <text
-        x="48"
-        y="64"
-        textAnchor="middle"
-        fontFamily="var(--font-serif-sc), serif"
-        fontSize="21"
-        fontWeight="700"
-        fill="#d4af37"
-      >
-        验光
-      </text>
+      {lines.map((line, i) => (
+        <text
+          key={line}
+          x="48"
+          y={i === 0 ? 38 : 64}
+          textAnchor="middle"
+          fontFamily="var(--font-serif-sc), serif"
+          fontSize="21"
+          fontWeight="700"
+          fill="#d4af37"
+        >
+          {line}
+        </text>
+      ))}
     </svg>
   );
 }
 
-/* ---------------- Hero 区块 ---------------- */
+/* ---------------- 悬浮卡图标映射 ---------------- */
 
-const stats = [
-  { value: "14", unit: "年", label: "专业视光经验" },
-  { value: "10", unit: "万+", label: "学生配镜信赖" },
-  { value: "21", unit: "步", label: "医学验光流程" },
-  { value: "4.9", unit: "分", label: "家长口碑评分" },
-];
+const floatingIcons: Record<string, typeof IconSparkle> = {
+  sparkle: IconSparkle,
+  check: IconCheck,
+};
+
+/* ---------------- Hero 区块 ---------------- */
 
 export default function Hero() {
   return (
@@ -222,41 +216,40 @@ export default function Hero() {
           <p className="flex items-center gap-3">
             <span className="rule-gold w-10" />
             <span className="font-latin text-xs font-semibold uppercase tracking-[0.32em] text-gold-300 sm:text-sm">
-              Jiashi Optical · Est. 2012
+              {hero.eyebrow}
             </span>
           </p>
 
           <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.18] text-cream sm:text-6xl lg:text-[4.2rem]">
-            看清世界，
+            {hero.title.line1}
             <br />
-            从<span className="text-gold-300">佳视</span>开始
+            从<span className="text-gold-300">{hero.title.highlight}</span>
+            {hero.title.line2}
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-navy-100 sm:text-lg">
-            专注学生近视配镜十四年 —— 21
-            步医学验光、轻至八克的航空钛镜架、延缓近视加深的功能性镜片，
-            也为您与家人提供时尚太阳镜与精准老花镜。
+            {hero.subtitle}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="#contact"
+              href={hero.ctaPrimary.href}
               className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300 active:translate-y-0"
             >
-              预约免费验光
+              {hero.ctaPrimary.label}
               <IconArrowRight className="h-4.5 w-4.5" />
             </a>
             <a
-              href="#products"
+              href={hero.ctaSecondary.href}
               className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-base font-medium text-cream transition-all duration-200 hover:border-gold-300 hover:text-gold-300"
             >
-              探索产品系列
+              {hero.ctaSecondary.label}
             </a>
           </div>
 
           {/* 数据 */}
           <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
-            {stats.map((s) => (
+            {hero.stats.map((s) => (
               <div key={s.label}>
                 <dd className="font-latin text-3xl font-semibold tabular-nums text-gold-300 sm:text-[2.1rem]">
                   {s.value}
@@ -273,16 +266,16 @@ export default function Hero() {
         {/* 视力表视觉 */}
         <div className="relative mx-auto mt-16 w-full max-w-md lg:mt-0">
           <div className="absolute -left-4 -top-6 z-10 -rotate-6 sm:-left-8">
-            <Seal />
+            <Seal lines={hero.sealText} />
           </div>
 
           <div className="relative rounded-3xl border border-gold-400/25 bg-navy-950/80 p-5 shadow-[0_24px_64px_rgb(0_0_0/0.4)] backdrop-blur-sm sm:p-7">
             <div className="flex items-baseline justify-between border-b border-white/10 pb-3">
               <p className="font-display text-sm font-semibold tracking-[0.2em] text-cream">
-                佳视 · 标准视力表
+                {hero.chartCard.title}
               </p>
               <p className="font-latin text-[0.65rem] uppercase tracking-[0.3em] text-gold-300/80">
-                Vision Chart
+                {hero.chartCard.en}
               </p>
             </div>
             <EyeChart />
@@ -294,14 +287,22 @@ export default function Hero() {
           </div>
 
           {/* 悬浮信息卡 */}
-          <div className="absolute -right-3 top-1/4 hidden items-center gap-2 rounded-2xl border border-white/15 bg-navy-800/90 px-4 py-2.5 shadow-lg backdrop-blur-sm sm:flex">
-            <IconSparkle className="h-4 w-4 text-gold-300" />
-            <span className="text-sm font-medium text-cream">21 步医学验光</span>
-          </div>
-          <div className="absolute -left-3 bottom-24 hidden items-center gap-2 rounded-2xl border border-white/15 bg-navy-800/90 px-4 py-2.5 shadow-lg backdrop-blur-sm sm:flex">
-            <IconCheck className="h-4 w-4 text-gold-300" />
-            <span className="text-sm font-medium text-cream">双眼视力 5.2</span>
-          </div>
+          {hero.floatingCards.map((card, i) => {
+            const Icon = floatingIcons[card.icon];
+            return (
+              <div
+                key={card.icon}
+                className={`absolute hidden items-center gap-2 rounded-2xl border border-white/15 bg-navy-800/90 px-4 py-2.5 shadow-lg backdrop-blur-sm sm:flex ${
+                  i === 0 ? "-right-3 top-1/4" : "-left-3 bottom-24"
+                }`}
+              >
+                {Icon && <Icon className="h-4 w-4 text-gold-300" />}
+                <span className="text-sm font-medium text-cream">
+                  {card.text}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

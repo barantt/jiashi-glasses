@@ -3,8 +3,9 @@
 import { useState } from "react";
 import type { PostSummary } from "./PostCard";
 import PostCard from "./PostCard";
+import { blogUi } from "@/config/blog";
 
-const ALL = "全部";
+const ALL = blogUi.allLabel;
 
 /**
  * 博客列表：分类筛选 + 卡片网格（与 Showroom 同一交互模式，
@@ -60,7 +61,7 @@ export default function BlogFilters({
         ))}
       </div>
       <p aria-live="polite" className="mt-4 text-center text-xs text-ink-mute">
-        共 {filtered.length} 篇文章
+        {blogUi.postCount(filtered.length)}
       </p>
 
       <div key={active} className="mt-10 space-y-7">

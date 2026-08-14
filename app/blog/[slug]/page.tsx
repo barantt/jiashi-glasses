@@ -9,7 +9,9 @@ import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { IconArrowRight, IconChevronDown, IconClock } from "@/components/icons";
 import { formatDate, getPost, getPosts, getRelatedPosts } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { blogUi } from "@/config/blog";
+import { brand, ogImage, siteUrl } from "@/config/site";
+import { store } from "@/config/contact";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
-      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
     },
   };
 }
@@ -58,12 +60,12 @@ export default async function BlogPostPage({ params }: PageProps) {
     mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
     author: {
       "@type": "Organization",
-      name: "佳视眼镜",
+      name: brand.name,
       url: `${siteUrl}/`,
     },
     publisher: {
       "@type": "Organization",
-      name: "佳视眼镜",
+      name: brand.name,
       url: `${siteUrl}/`,
     },
     image: `${siteUrl}/og-image.png`,
@@ -82,11 +84,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* 面包屑 */}
           <nav aria-label="面包屑" className="flex flex-wrap items-center gap-2 text-sm text-ink-mute">
             <Link href="/" className="transition-colors duration-200 hover:text-navy-800">
-              首页
+              {blogUi.breadcrumbHome}
             </Link>
             <span aria-hidden="true">/</span>
             <Link href="/blog" className="transition-colors duration-200 hover:text-navy-800">
-              护眼博客
+              {blogUi.breadcrumbBlog}
             </Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-800">{post.category}</span>
@@ -114,13 +116,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                   aria-hidden="true"
                   className="flex h-6 w-6 items-center justify-center rounded-full bg-navy-800 text-[0.7rem] font-bold text-gold-300"
                 >
-                  佳
+                  {blogUi.authorAvatarChar}
                 </span>
                 {post.author}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <IconClock className="h-4 w-4" />
-                阅读约 {post.readMinutes} 分钟
+                {blogUi.readMinutes(post.readMinutes)}
               </span>
             </div>
           </header>
@@ -154,24 +156,24 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* 预约 CTA */}
           <aside className="mt-12 overflow-hidden rounded-3xl bg-navy-900 p-8 text-center sm:p-10">
             <h2 className="font-display text-2xl font-bold text-cream sm:text-3xl">
-              眼睛的问题，值得当面聊一聊
+              {blogUi.cta.title}
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-navy-100 sm:text-base">
-              文章能讲清道理，验光才能看清状况。预约免费验光，让专业人士为你的眼睛做一次完整评估。
+              {blogUi.cta.desc}
             </p>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/#contact"
+                href={blogUi.cta.buttonHref}
                 className="inline-flex items-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-[0_8px_24px_rgb(212_175_55/0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-300"
               >
-                预约免费验光
+                {blogUi.cta.button}
                 <IconArrowRight className="h-4.5 w-4.5" />
               </Link>
               <a
-                href="tel:4008886666"
+                href={store.phoneHref}
                 className="font-latin text-base font-semibold text-gold-300 transition-colors duration-200 hover:text-gold-400"
               >
-                400-888-6666
+                {store.phoneDisplay}
               </a>
             </div>
           </aside>
@@ -181,7 +183,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {related.length > 0 && (
           <div className="mx-auto mt-20 max-w-7xl px-5 sm:px-8">
             <h2 className="text-center font-display text-2xl font-bold text-navy-900 sm:text-3xl">
-              继续阅读
+              {blogUi.relatedTitle}
             </h2>
             <div className="mt-8 grid gap-7 md:grid-cols-3">
               {related.map((p) => (
@@ -198,7 +200,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             className="inline-flex items-center gap-2 text-sm font-semibold text-navy-800 transition-colors duration-200 hover:text-gold-700"
           >
             <IconChevronDown className="h-4 w-4 rotate-90" />
-            返回全部文章
+            {blogUi.backLabel}
           </Link>
         </div>
       </article>
