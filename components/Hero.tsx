@@ -1,157 +1,8 @@
+import Image from "next/image";
 import { IconArrowRight, IconCheck, IconSparkle } from "./icons";
 import { hero } from "@/config/hero";
 
-/* ---------------- 标准视力表（E 字表） ---------------- */
-/* 视力表行数据为 SVG 绘图参数（装饰图形），非业务数据，保留在组件内 */
-
-const ROWS = [
-  { size: 56, count: 1, acuity: "0.1" },
-  { size: 38, count: 2, acuity: "0.3" },
-  { size: 26, count: 3, acuity: "0.5" },
-  { size: 19, count: 4, acuity: "0.8" },
-  { size: 14, count: 5, acuity: "1.0" },
-];
-
-/** 单个 E 字，可旋转四个朝向（斯耐伦表样式） */
-function EChar({
-  cx,
-  cy,
-  size,
-  rot,
-}: {
-  cx: number;
-  cy: number;
-  size: number;
-  rot: number;
-}) {
-  const hw = size * 0.34;
-  const hh = size / 2;
-  const t = size * 0.15;
-  const x0 = cx - hw;
-  return (
-    <g transform={`rotate(${rot} ${cx} ${cy})`}>
-      <path d={`M${x0} ${cy - hh} V${cy + hh}`} />
-      <path
-        d={`M${x0} ${cy - hh} H${cx + hw} M${x0} ${cy} H${cx + hw - t} M${x0} ${cy + hh} H${cx + hw}`}
-      />
-    </g>
-  );
-}
-
-function EyeChart() {
-  const yPos = [104, 186, 254, 312, 358];
-  return (
-    <svg
-      viewBox="0 0 340 424"
-      role="img"
-      aria-label="E视标准视力表插画"
-      className="h-auto w-full"
-    >
-      {ROWS.map((row, ri) => {
-        const totalW =
-          row.count * row.size * 0.86 + (row.count - 1) * row.size * 0.3;
-        const startX = 152 - totalW / 2;
-        return (
-          <g key={ri}>
-            {Array.from({ length: row.count }, (_, ci) => (
-              <EChar
-                key={ci}
-                cx={startX + ci * row.size * 1.16 + row.size * 0.43}
-                cy={yPos[ri]}
-                size={row.size}
-                rot={((ri * 7 + ci * 5) % 4) * 90}
-              />
-            ))}
-            <text
-              x={318}
-              y={yPos[ri] + 4}
-              textAnchor="end"
-              fontFamily="var(--font-outfit), sans-serif"
-              fontSize="13"
-              fill="#58b925"
-            >
-              {row.acuity}
-            </text>
-          </g>
-        );
-      })}
-      <text
-        x={152}
-        y={408}
-        textAnchor="middle"
-        fontFamily="var(--font-outfit), sans-serif"
-        fontSize="16"
-        letterSpacing="4"
-        fill="#58b925"
-      >
-        5.0
-      </text>
-    </svg>
-  );
-}
-
-/** 悬浮眼镜插画 */
-function HeroGlasses() {
-  return (
-    <svg viewBox="0 0 260 150" aria-hidden="true" className="h-auto w-full">
-      <g transform="rotate(-6 130 80)">
-        <rect
-          x="10"
-          y="44"
-          width="98"
-          height="66"
-          rx="26"
-          fill="#eaf2fb"
-          fillOpacity="0.96"
-          stroke="#0f1e31"
-          strokeWidth="5"
-        />
-        <rect
-          x="152"
-          y="44"
-          width="98"
-          height="66"
-          rx="26"
-          fill="#eaf2fb"
-          fillOpacity="0.96"
-          stroke="#0f1e31"
-          strokeWidth="5"
-        />
-        <path
-          d="M108 66c10 2 34 2 44 0"
-          fill="none"
-          stroke="#0f1e31"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M10 58 0 50M250 58l-10-8"
-          stroke="#0f1e31"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M28 92l16-16"
-          stroke="#58b925"
-          strokeWidth="3"
-          strokeLinecap="round"
-          opacity="0.85"
-        />
-        <path
-          d="M170 92l16-16"
-          stroke="#58b925"
-          strokeWidth="3"
-          strokeLinecap="round"
-          opacity="0.85"
-        />
-        <circle cx="10" cy="62" r="3.2" fill="#58b925" />
-        <circle cx="250" cy="62" r="3.2" fill="#58b925" />
-      </g>
-    </svg>
-  );
-}
-
-/** 金色印章（文字来自 config/hero.ts 的 sealText） */
+/** 品牌印章（文字来自 config/hero.ts 的 sealText） */
 function Seal({ lines }: { lines: string[] }) {
   return (
     <svg
@@ -191,7 +42,7 @@ const floatingIcons: Record<string, typeof IconSparkle> = {
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-navy-900">
-      {/* 装饰：细网格 + 金色光晕 */}
+      {/* 装饰：细网格 + 绿色光晕 */}
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-60"
@@ -263,27 +114,26 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* 视力表视觉 */}
+        {/* 学生形象视觉 */}
         <div className="relative mx-auto mt-16 w-full max-w-md lg:mt-0">
-          <div className="absolute -left-4 -top-6 z-10 -rotate-6 sm:-left-8">
+          {/* 人物身后光晕 */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-4 bottom-6 top-10 rounded-full bg-green-400/15 blur-3xl"
+          />
+
+          <Image
+            src={hero.visual.src}
+            alt={hero.visual.alt}
+            width={hero.visual.width}
+            height={hero.visual.height}
+            priority
+            className="relative z-[1] mx-auto h-auto w-full max-w-[26rem] drop-shadow-[0_28px_56px_rgb(0_0_0/0.4)]"
+          />
+
+          {/* 品牌印章 */}
+          <div className="absolute -left-4 top-4 z-10 -rotate-6 sm:-left-8">
             <Seal lines={hero.sealText} />
-          </div>
-
-          <div className="relative rounded-3xl border border-green-400/25 bg-navy-950/80 p-5 shadow-[0_24px_64px_rgb(0_0_0/0.4)] backdrop-blur-sm sm:p-7">
-            <div className="flex items-baseline justify-between border-b border-white/10 pb-3">
-              <p className="font-display text-sm font-semibold tracking-[0.2em] text-cream">
-                {hero.chartCard.title}
-              </p>
-              <p className="font-latin text-[0.65rem] uppercase tracking-[0.3em] text-green-300/80">
-                {hero.chartCard.en}
-              </p>
-            </div>
-            <EyeChart />
-          </div>
-
-          {/* 悬浮眼镜 */}
-          <div className="absolute -bottom-10 -right-2 w-44 animate-float sm:-right-8 sm:w-56">
-            <HeroGlasses />
           </div>
 
           {/* 悬浮信息卡 */}
@@ -293,7 +143,7 @@ export default function Hero() {
               <div
                 key={card.icon}
                 className={`absolute hidden items-center gap-2 rounded-2xl border border-white/15 bg-navy-800/90 px-4 py-2.5 shadow-lg backdrop-blur-sm sm:flex ${
-                  i === 0 ? "-right-3 top-1/4" : "-left-3 bottom-24"
+                  i === 0 ? "-right-3 top-[22%]" : "-left-3 bottom-28"
                 }`}
               >
                 {Icon && <Icon className="h-4 w-4 text-green-300" />}

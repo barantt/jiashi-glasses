@@ -2,7 +2,7 @@
  * ============================================================
  * 【这是什么数据】首屏 Hero 区块（#top）的文案与数据：
  *   眉题、主标题、副标题、双 CTA 按钮、四组统计数字、
- *   印章文字、视力表卡片标题、两张悬浮信息卡。
+ *   印章文字、右侧学生形象图、两张悬浮信息卡。
  * 【在哪里被使用】components/Hero.tsx
  * 【修改时注意什么】
  *   - 统计数字 value 引用 config/site.ts 的 brandFacts，
@@ -43,8 +43,17 @@ export const hero = {
   ],
   /** 金色印章文字（视觉装饰，两行） */
   sealText: ["E视", "验光"],
-  /** 视力表卡片标题 */
-  chartCard: { title: "E视 · 标准视力表", en: "Vision Chart" },
+  /**
+   * 右侧学生形象图（透明背景，底部对齐站立构图）。
+   * 原图 AI 生成 → public/hero-student.webp（sharp 压缩到 900 宽）。
+   * 换图方法：新图放入 public/ 后改 src；width/height 填实际像素（防布局抖动）。
+   */
+  visual: {
+    src: "/hero-student.webp",
+    alt: "戴眼镜微笑的学生 — E视眼镜学生近视配镜",
+    width: 900,
+    height: 1014,
+  },
   /** 悬浮信息卡（icon 为图标名，需在 Hero.tsx 映射） */
   floatingCards: [
     { icon: "sparkle", text: `${brandFacts.steps} 步医学验光` },
