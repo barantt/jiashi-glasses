@@ -49,7 +49,7 @@ export const reviews: Review[] = [
     quote:
       "镜架轻到几乎感觉不到，打球戴着也不滑。学习累了去店里，还能免费清洗调整眼镜，服务真的没话说。",
     name: "张同学",
-    role: "高三毕业生 · 四年老顾客",
+    role: "高三毕业生",
     avatar:
       "/avatars/avatar-zhang.jpg",
   },
@@ -76,7 +76,7 @@ export const reviews: Review[] = [
     quote:
       "高二学习紧张，眼镜坏了都是下课冲过去修。店员每次都很快帮我调好，还不收钱，真的很感谢。",
     name: "刘同学",
-    role: "高二学生 · 三年老顾客",
+    role: "高二学生",
     avatar:
       "/avatars/avatar-liu.jpg",
   },

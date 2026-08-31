@@ -26,9 +26,11 @@ function ReviewCard({ r }: { r: Review }) {
             className="h-full w-full object-cover"
           />
         </span>
-        <span>
+        <span className="min-w-0">
           <span className="block text-sm font-semibold text-ink">{r.name}</span>
-          <span className="mt-0.5 block text-xs text-ink-mute">{r.role}</span>
+          <span className="mt-0.5 block truncate text-xs text-ink-mute">
+            {r.role}
+          </span>
         </span>
         <span className="ml-auto flex items-center gap-0.5 text-green-500">
           {Array.from({ length: 5 }, (_, i) => (
