@@ -32,6 +32,11 @@ const businessJsonLd = {
     streetAddress: store.addressShort,
     addressCountry: "CN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: store.geo.lat,
+    longitude: store.geo.lng,
+  },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [

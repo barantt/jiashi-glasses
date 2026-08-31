@@ -46,11 +46,10 @@ export const store = {
   /** 地图导航搜索词（建议「市 + 学校/街道 + 店铺名」，提高定位准确率） */
   mapKeyword: "仙桃市第一中学可丽超市",
   /**
-   * 门店经纬度（可选）：填写后导航直接定位到店门口（storeMapUrl 自动切换），
-   * 留空则按 mapKeyword 搜索。坐标用高德坐标拾取器获取：
-   * https://lbs.amap.com/tools/picker（格式 "lng,lat"，如 "113.454,30.367"）
+   * 门店经纬度：填写后导航直接定位到店门口（storeMapUrl 自动切换为 marker 模式）。
+   * 坐标来源：高德坐标拾取器 https://lbs.amap.com/tools/picker
    */
-  geo: { lng: "", lat: "" },
+  geo: { lng: "113.469025", lat: "30.355875" },
 };
 
 /**
