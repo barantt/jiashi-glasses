@@ -1,11 +1,12 @@
 /**
  * ============================================================
  * 【这是什么数据】品牌与站点全局信息：品牌名、标语、创立年份、
- *   版权、ICP 备案号、品牌核心数字（brandFacts）、全站 SEO 元信息。
+ *   版权、品牌核心数字（brandFacts）、全站 SEO 元信息。
+ *   （ICP 备案号已移除 —— 站点托管于 Cloudflare 境外，无需备案。）
  * 【在哪里被使用】
  *   - brand / slogan / foundedYear：导航栏、页脚、首屏 Hero、
  *     app/layout.tsx 的 metadata、首页与博客页的 JSON-LD
- *   - copyright / icp：页脚 Footer
+ *   - copyright：页脚 Footer
  *   - brandFacts：首屏统计、评价区评分、信任条、流程步骤等处的数字
  *   - seo / ogImage：app/layout.tsx 全站 metadata
  * 【修改时注意什么】
@@ -51,8 +52,6 @@ export const copyright = {
   text: "保留所有权利",
 };
 
-/** ICP 备案号（当前为占位，拿到备案号后替换） */
-export const icp = "粤ICP备XXXXXXXX号（占位）";
 
 /**
  * 品牌核心数字 —— 全站数字的唯一出处（演示占位数据，上线前替换真实数据）。

@@ -1,6 +1,6 @@
 import { LogoMark } from "./icons";
 import { footerColumns } from "@/config/navigation";
-import { brand, copyright, icp } from "@/config/site";
+import { brand, copyright } from "@/config/site";
 import { store, storeMapUrl } from "@/config/contact";
 
 export default function Footer() {
@@ -76,11 +76,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+          {/* 站点托管于 Cloudflare（境外），无需 ICP 备案，故不展示备案号 */}
           <p className="text-xs text-navy-200/60">
             © {copyright.year} {brand.name} {brand.nameEn} · {copyright.text}
-          </p>
-          <p className="text-xs text-navy-200/60">
-            <span className="font-latin">ICP</span> 备案号：{icp}
           </p>
         </div>
       </div>
