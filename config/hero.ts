@@ -45,14 +45,16 @@ export const hero = {
   sealText: ["E视", "验光"],
   /**
    * 右侧学生形象图（透明背景，底部对齐站立构图）。
-   * 原图 AI 生成 → public/hero-student.webp（sharp 压缩到 900 宽）。
-   * 换图方法：新图放入 public/ 后改 src；width/height 填实际像素（防布局抖动）。
+   * 图片托管在 CDN 子域名 img.eshiglasses.com —— 想换图时直接替换 CDN 上的文件即可，
+   * 无需改代码重新部署；width/height 填原图实际像素（防布局抖动）。
+   * 注意：CDN 原图为 1.5MB PNG，若加载偏慢可在 Cloudflare 后台为 img 子域名
+   * 开启 Polish（自动 WebP 压缩），或换回本地压缩版 public/hero-student.webp。
    */
   visual: {
-    src: "/hero-student.webp",
+    src: "https://img.eshiglasses.com/ChatGPT%20Image%202026%E5%B9%B48%E6%9C%8831%E6%97%A5%2011_42_44.png",
     alt: "戴眼镜微笑的学生 — E视眼镜学生近视配镜",
-    width: 900,
-    height: 1014,
+    width: 1181,
+    height: 1331,
   },
   /** 悬浮信息卡（icon 为图标名，需在 Hero.tsx 映射） */
   floatingCards: [
