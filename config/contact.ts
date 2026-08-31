@@ -16,6 +16,8 @@
  *     phoneIntl JSON-LD 国际格式），改号码时三个都要同步
  *   - 营业时间有三个字段（hoursLine 完整展示 / hoursShort 页脚简版 /
  *     hoursOpen+hoursClose JSON-LD 的 24 小时制），改营业时间时同步
+ *   - 地址导航：改 mapKeyword 可调搜索词；拿到经纬度后填入 store.geo，
+ *     storeMapUrl 会自动从「关键词搜索」切换为「精确定位」
  *   - 表单校验规则（正则）在 Contact.tsx 的 validate() 里，属代码逻辑；
  *     这里只放校验失败时显示的错误文案
  * ============================================================
@@ -23,25 +25,43 @@
 
 /** 门店信息 */
 export const store = {
-  /** 完整地址（Contact 区块展示，含旗舰店后缀） */
-  addressLine: "幸福路 88 号 · 第一中学对面（E视眼镜旗舰店）",
+  /** 完整地址（Contact 区块展示） */
+  addressLine: "仙桃一中可丽超市负一楼",
   /** 简版地址（页脚 / JSON-LD 用） */
-  addressShort: "幸福路 88 号 · 第一中学对面",
+  addressShort: "仙桃一中 · 可丽超市负一楼",
   /** 页面显示的电话号码 */
-  phoneDisplay: "400-888-6666",
+  phoneDisplay: "135-1720-6661",
   /** 电话链接的 href（tel: 协议） */
-  phoneHref: "tel:4008886666",
+  phoneHref: "tel:13517206661",
   /** 国际格式电话（JSON-LD 结构化数据用） */
-  phoneIntl: "+86-400-888-6666",
+  phoneIntl: "+86-135-1720-6661",
   /** 完整营业时间文案（Contact 区块展示） */
-  hoursLine: "每日 9:00 – 21:00（寒暑假与开学季无休）",
+  hoursLine: "每日 8:30 – 20:30",
   /** 简版营业时间文案（页脚展示） */
-  hoursShort: "每日 9:00 – 21:00",
+  hoursShort: "每日 8:30 – 20:30",
   /** 开门时间 24 小时制（JSON-LD 用） */
-  hoursOpen: "09:00",
+  hoursOpen: "08:30",
   /** 关门时间 24 小时制（JSON-LD 用） */
-  hoursClose: "21:00",
+  hoursClose: "20:30",
+  /** 地图导航搜索词（建议「市 + 学校/街道 + 店铺名」，提高定位准确率） */
+  mapKeyword: "仙桃市第一中学可丽超市",
+  /**
+   * 门店经纬度（可选）：填写后导航直接定位到店门口（storeMapUrl 自动切换），
+   * 留空则按 mapKeyword 搜索。坐标用高德坐标拾取器获取：
+   * https://lbs.amap.com/tools/picker（格式 "lng,lat"，如 "113.454,30.367"）
+   */
+  geo: { lng: "", lat: "" },
 };
+
+/**
+ * 高德导航链接（components/Contact.tsx 与 Footer.tsx 的地址点击跳转）。
+ * 手机端自动唤起高德 App；有 geo 坐标时定位到店门口，无坐标时按关键词搜索。
+ * 想换百度/腾讯地图时改这里的 URL 模板即可。
+ */
+export const storeMapUrl =
+  store.geo.lng && store.geo.lat
+    ? `https://uri.amap.com/marker?position=${store.geo.lng},${store.geo.lat}&name=${encodeURIComponent(store.addressShort)}`
+    : `https://uri.amap.com/search?keyword=${encodeURIComponent(store.mapKeyword)}&view=map`;
 
 /** 「联系我们」区块文案 */
 export const contactSection = {
@@ -53,7 +73,9 @@ export const contactSection = {
   labels: {
     address: "门店地址",
     hours: "营业时间",
-    phone: "预约电话",
+    phone: "联系电话",
+    /** 地址右侧的「导航」提示文字 */
+    mapHint: "导航",
   },
 };
 

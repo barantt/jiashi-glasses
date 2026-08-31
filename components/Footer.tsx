@@ -1,7 +1,7 @@
 import { LogoMark } from "./icons";
 import { footerColumns } from "@/config/navigation";
 import { brand, copyright, icp } from "@/config/site";
-import { store } from "@/config/contact";
+import { store, storeMapUrl } from "@/config/contact";
 
 export default function Footer() {
   return (
@@ -50,7 +50,17 @@ export default function Footer() {
               联系我们
             </h3>
             <ul className="mt-5 space-y-3 text-sm text-navy-200/80">
-              <li>门店：{store.addressShort}</li>
+              <li>
+                门店：
+                <a
+                  href={storeMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors duration-200 hover:text-green-300"
+                >
+                  {store.addressShort}
+                </a>
+              </li>
               <li>
                 电话：
                 <a

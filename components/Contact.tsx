@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import {
+  IconArrowRight,
   IconCalendar,
   IconCheck,
   IconClock,
   IconMapPin,
   IconPhone,
 } from "./icons";
-import { contactSection, form, store } from "@/config/contact";
+import { contactSection, form, store, storeMapUrl } from "@/config/contact";
 
 type Errors = Partial<Record<"name" | "phone" | "service", string>>;
 
@@ -91,9 +92,18 @@ export default function Contact() {
                 <span className="block text-sm text-navy-200">
                   {contactSection.labels.address}
                 </span>
-                <span className="mt-1 block font-medium text-cream">
+                <a
+                  href={storeMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-baseline gap-2 font-medium text-cream transition-colors duration-200 hover:text-green-300"
+                >
                   {store.addressLine}
-                </span>
+                  <span className="inline-flex shrink-0 items-center gap-0.5 text-xs font-semibold text-green-300">
+                    {contactSection.labels.mapHint}
+                    <IconArrowRight className="h-3 w-3" />
+                  </span>
+                </a>
               </span>
             </li>
             <li className="flex items-start gap-4">
