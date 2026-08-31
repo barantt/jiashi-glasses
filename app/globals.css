@@ -119,8 +119,7 @@ section[id] {
   }
   .animate-float,
   .animate-float-slow,
-  .marquee-track,
-  .marquee-track-reverse {
+  .marquee-track {
     animation: none;
   }
   *,
@@ -172,12 +171,7 @@ section[id] {
   animation: marquee 45s linear infinite;
 }
 
-.marquee-track-reverse {
-  animation: marquee 55s linear infinite reverse;
-}
-
-.marquee:hover .marquee-track,
-.marquee:hover .marquee-track-reverse {
+.marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 

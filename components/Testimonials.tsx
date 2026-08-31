@@ -40,21 +40,13 @@ function ReviewCard({ r }: { r: Review }) {
   );
 }
 
-/** 一行轮播：内容复制两份实现无缝循环，hover 暂停 */
-function MarqueeRow({
-  items,
-  durationS,
-  reverse = false,
-}: {
-  items: Review[];
-  durationS: number;
-  reverse?: boolean;
-}) {
+/** 单行轮播：内容复制两份实现无缝循环，hover 暂停 */
+function MarqueeRow({ items, durationS }: { items: Review[]; durationS: number }) {
   const doubled = [...items, ...items];
   return (
     <div className="marquee">
       <div
-        className={`flex w-max gap-7 ${reverse ? "marquee-track-reverse" : "marquee-track"}`}
+        className="marquee-track flex w-max gap-7"
         style={{ animationDuration: `${durationS}s` }}
       >
         {doubled.map((r, i) => (
@@ -68,10 +60,6 @@ function MarqueeRow({
 }
 
 export default function Testimonials() {
-  // 前 5 条第一行，其余第二行（config/testimonials.ts 注释有说明）
-  const row1 = reviews.slice(0, 5);
-  const row2 = reviews.slice(5);
-
   return (
     <section id="testimonials" className="overflow-hidden bg-cream py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -102,14 +90,9 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* 两行自动滚动轮播（hover 暂停） */}
-      <div className="mt-14 space-y-7">
-        <MarqueeRow items={row1} durationS={testimonialsSection.marquee.row1DurationS} />
-        <MarqueeRow
-          items={row2}
-          durationS={testimonialsSection.marquee.row2DurationS}
-          reverse
-        />
+      {/* 单行自动滚动轮播（hover 暂停） */}
+      <div className="mt-14">
+        <MarqueeRow items={reviews} durationS={testimonialsSection.marquee.durationS} />
       </div>
     </section>
   );
