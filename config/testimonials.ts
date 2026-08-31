@@ -7,9 +7,10 @@
  * 【修改时注意什么】
  *   - 评分数字 testimonialsSection.rating 引用 config/site.ts 的
  *     brandFacts.rating，改评分去 site.ts 改
- *   - 评价为演示占位内容，上线前替换为真实顾客评价；
- *     头像为亚洲面孔占位图（Unsplash），替换时建议把真实头像传到
- *     img.eshiglasses.com 后改 avatar 字段
+ *   - 评价为演示占位内容，上线前替换为真实顾客评价
+ *   - 头像：public/avatars/avatar-*.jpg（AI 生成的九宫格按 3×3 顺序裁切，
+ *     顺序与下方 reviews 一致：格1=李女士…格9=张先生）；换头像直接替换
+ *     对应文件即可（128×128，正方形）
  *   - 轮播速度：marquee.durationS（秒，越大越慢）；hover 自动暂停由组件实现
  * ============================================================
  */
@@ -25,13 +26,13 @@ export interface Review {
   name: string;
   /** 顾客身份描述 */
   role: string;
-  /** 头像图片地址（占位：randomuser.me；上线前换真实顾客照片） */
+  /** 头像图片地址（public/avatars/ 下的本地文件） */
   avatar: string;
 }
 
 /**
  * 顾客评价（演示数据），单行轮播展示。
- * 头像为亚洲面孔占位图（Unsplash 脸部裁切），上线前替换真实顾客照片。
+ * 头像为 AI 生成的亚洲面孔（九宫格裁切），上线前可替换真实顾客照片。
  */
 export const reviews: Review[] = [
   {
@@ -41,7 +42,7 @@ export const reviews: Review[] = [
     name: "李女士",
     role: "初二学生家长",
     avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-li.jpg",
   },
   {
     id: "student-zhang",
@@ -50,7 +51,7 @@ export const reviews: Review[] = [
     name: "张同学",
     role: "高三毕业生 · 四年老顾客",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-zhang.jpg",
   },
   {
     id: "mr-wang",
@@ -59,7 +60,7 @@ export const reviews: Review[] = [
     name: "王先生",
     role: "为父亲配镜",
     avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-wang.jpg",
   },
   {
     id: "parent-chen",
@@ -68,7 +69,7 @@ export const reviews: Review[] = [
     name: "陈女士",
     role: "小学二年级家长",
     avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-chen.jpg",
   },
   {
     id: "student-liu",
@@ -77,7 +78,7 @@ export const reviews: Review[] = [
     name: "刘同学",
     role: "高二学生 · 三年老顾客",
     avatar:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-liu.jpg",
   },
   {
     id: "teacher-zhou",
@@ -86,7 +87,7 @@ export const reviews: Review[] = [
     name: "周老师",
     role: "中学教师",
     avatar:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-zhou.jpg",
   },
   {
     id: "aunt-wu",
@@ -95,7 +96,7 @@ export const reviews: Review[] = [
     name: "吴阿姨",
     role: "渐进片顾客",
     avatar:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-wu.jpg",
   },
   {
     id: "student-sun",
@@ -104,7 +105,7 @@ export const reviews: Review[] = [
     name: "孙同学",
     role: "初一学生",
     avatar:
-      "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-sun.jpg",
   },
   {
     id: "dad-zhang",
@@ -113,7 +114,7 @@ export const reviews: Review[] = [
     name: "张先生",
     role: "学生家长",
     avatar:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop&crop=faces&q=80",
+      "/avatars/avatar-zhang2.jpg",
   },
 ];
 
