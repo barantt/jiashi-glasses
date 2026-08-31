@@ -1,11 +1,17 @@
 /**
  * ============================================================
- * 【这是什么数据】顾客评价区块（#testimonials）的评价内容与文案。
+ * 【这是什么数据】顾客评价区块（#testimonials）的评价内容与文案：
+ *   - reviews：顾客评价列表（两行轮播展示，前 5 条第一行、其余第二行）
+ *   - testimonialsSection：区块文案 + 评分 + 轮播参数
  * 【在哪里被使用】components/Testimonials.tsx
  * 【修改时注意什么】
  *   - 评分数字 testimonialsSection.rating 引用 config/site.ts 的
  *     brandFacts.rating，改评分去 site.ts 改
- *   - 评价为演示占位内容，上线前替换为真实顾客评价
+ *   - 评价为演示占位内容，上线前替换为真实顾客评价；
+ *     头像为占位图（randomuser.me），替换时建议把真实头像传到
+ *     img.eshiglasses.com 后改 avatar 字段
+ *   - 轮播速度：marquee.row1DurationS 第一行、row2DurationS 第二行
+ *     （秒，越大越慢）；hover 自动暂停由组件实现
  * ============================================================
  */
 
@@ -20,9 +26,14 @@ export interface Review {
   name: string;
   /** 顾客身份描述 */
   role: string;
+  /** 头像图片地址（占位：randomuser.me；上线前换真实顾客照片） */
+  avatar: string;
 }
 
-/** 顾客评价（演示数据） */
+/**
+ * 顾客评价（演示数据）。
+ * 轮播分两行：前 5 条第一行（向右滚动），第 6 条起第二行（反向滚动）。
+ */
 export const reviews: Review[] = [
   {
     id: "parent-li",
@@ -30,6 +41,7 @@ export const reviews: Review[] = [
       "孩子配了离焦镜一年，复查度数零增长。验光师特别耐心，还会手把手教孩子做护眼操，这份用心很难得。",
     name: "李女士",
     role: "初二学生家长",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     id: "student-zhang",
@@ -37,6 +49,7 @@ export const reviews: Review[] = [
       "镜架轻到几乎感觉不到，打球戴着也不滑。学习累了去店里，还能免费清洗调整眼镜，服务真的没话说。",
     name: "张同学",
     role: "高三毕业生 · 四年老顾客",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     id: "mr-wang",
@@ -44,6 +57,55 @@ export const reviews: Review[] = [
       "带父亲来配老花镜，店员全程搀扶讲解。渐进片适应得很快，父亲说看报纸终于不费劲了，还常念叨要去谢谢你们。",
     name: "王先生",
     role: "为父亲配镜",
+    avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+  },
+  {
+    id: "parent-chen",
+    quote:
+      "孩子一年级就查出近视，在E视配的防控镜。每学期都来复查，度数一直控制得很好，选这里我们放心。",
+    name: "陈女士",
+    role: "小学二年级家长",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+  },
+  {
+    id: "student-liu",
+    quote:
+      "高二学习紧张，眼镜坏了都是下课冲过去修。店员每次都很快帮我调好，还不收钱，真的很感谢。",
+    name: "刘同学",
+    role: "高二学生 · 三年老顾客",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    id: "teacher-zhou",
+    quote:
+      "给学生讲了一上午课，下午来配太阳镜。验光师特别专业，开车戴的偏光镜片看路牌都清晰了。",
+    name: "周老师",
+    role: "中学教师",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+  },
+  {
+    id: "aunt-wu",
+    quote:
+      "我的渐进片是闺女陪着来配的，刚开始不习惯，店里约我回来调了好几次，现在看手机看报纸都舒服。",
+    name: "吴阿姨",
+    role: "渐进片顾客",
+    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
+  },
+  {
+    id: "student-sun",
+    quote:
+      "配镜送的视力档案挺有意思，妈妈手机上就能看我的复查记录，同学都羡慕我眼镜轻。",
+    name: "孙同学",
+    role: "初一学生",
+    avatar: "https://randomuser.me/api/portraits/men/21.jpg",
+  },
+  {
+    id: "dad-zhang",
+    quote:
+      "从验光到取镜只用了两天，周六上午来正好赶上孩子下午的课。效率高还不糊弄，值得推荐。",
+    name: "张先生",
+    role: "学生家长",
+    avatar: "https://randomuser.me/api/portraits/men/52.jpg",
   },
 ];
 
@@ -56,4 +118,9 @@ export const testimonialsSection = {
   ratingMax: "5.0",
   /** 评分右侧的评价条数文案（对应 brandFacts.reviews） */
   reviewCountText: `来自 ${brandFacts.reviews} 条家长与顾客的真实评价`,
+  /** 轮播参数：两行自动滚动速度（秒，越大越慢），hover 暂停 */
+  marquee: {
+    row1DurationS: 45,
+    row2DurationS: 60,
+  },
 };

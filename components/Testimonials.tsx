@@ -1,9 +1,79 @@
 import { IconStar } from "./icons";
 import { reviews, testimonialsSection } from "@/config/testimonials";
+import type { Review } from "@/config/testimonials";
+
+/** 评价卡片 */
+function ReviewCard({ r }: { r: Review }) {
+  return (
+    <figure className="flex w-[20rem] shrink-0 flex-col rounded-3xl border border-line bg-white p-8 shadow-card sm:w-[22rem]">
+      <span
+        aria-hidden="true"
+        className="font-display text-5xl font-black leading-none text-green-400/70"
+      >
+        “
+      </span>
+      <blockquote className="mt-2 flex-1 text-[0.95rem] leading-loose text-ink-soft">
+        {r.quote}
+      </blockquote>
+      <figcaption className="mt-7 flex items-center gap-3.5 border-t border-line-soft pt-6">
+        <span className="h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-green-400/40">
+          <img
+            src={r.avatar}
+            alt=""
+            width={44}
+            height={44}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </span>
+        <span>
+          <span className="block text-sm font-semibold text-ink">{r.name}</span>
+          <span className="mt-0.5 block text-xs text-ink-mute">{r.role}</span>
+        </span>
+        <span className="ml-auto flex items-center gap-0.5 text-green-500">
+          {Array.from({ length: 5 }, (_, i) => (
+            <IconStar key={i} className="h-3.5 w-3.5" />
+          ))}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/** 一行轮播：内容复制两份实现无缝循环，hover 暂停 */
+function MarqueeRow({
+  items,
+  durationS,
+  reverse = false,
+}: {
+  items: Review[];
+  durationS: number;
+  reverse?: boolean;
+}) {
+  const doubled = [...items, ...items];
+  return (
+    <div className="marquee">
+      <div
+        className={`flex w-max gap-7 ${reverse ? "marquee-track-reverse" : "marquee-track"}`}
+        style={{ animationDuration: `${durationS}s` }}
+      >
+        {doubled.map((r, i) => (
+          <div key={`${r.id}-${i}`} aria-hidden={i >= items.length}>
+            <ReviewCard r={r} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Testimonials() {
+  // 前 5 条第一行，其余第二行（config/testimonials.ts 注释有说明）
+  const row1 = reviews.slice(0, 5);
+  const row2 = reviews.slice(5);
+
   return (
-    <section id="testimonials" className="bg-cream py-20 sm:py-28">
+    <section id="testimonials" className="overflow-hidden bg-cream py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="flex items-center justify-center gap-3">
@@ -30,46 +100,16 @@ export default function Testimonials() {
             </span>
           </div>
         </div>
+      </div>
 
-        <div className="mt-14 grid gap-7 md:grid-cols-3 lg:mt-16">
-          {reviews.map((r) => (
-            <figure
-              key={r.id}
-              className="flex flex-col rounded-3xl border border-line bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
-            >
-              <span
-                aria-hidden="true"
-                className="font-display text-5xl font-black leading-none text-green-400/70"
-              >
-                “
-              </span>
-              <blockquote className="mt-2 flex-1 text-[0.95rem] leading-loose text-ink-soft">
-                {r.quote}
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-3.5 border-t border-line-soft pt-6">
-                <span
-                  aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-800 font-display text-base font-bold text-green-300"
-                >
-                  {r.name.charAt(0)}
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold text-ink">
-                    {r.name}
-                  </span>
-                  <span className="mt-0.5 block text-xs text-ink-mute">
-                    {r.role}
-                  </span>
-                </span>
-                <span className="ml-auto flex items-center gap-0.5 text-green-500">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <IconStar key={i} className="h-3.5 w-3.5" />
-                  ))}
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+      {/* 两行自动滚动轮播（hover 暂停） */}
+      <div className="mt-14 space-y-7">
+        <MarqueeRow items={row1} durationS={testimonialsSection.marquee.row1DurationS} />
+        <MarqueeRow
+          items={row2}
+          durationS={testimonialsSection.marquee.row2DurationS}
+          reverse
+        />
       </div>
     </section>
   );
