@@ -35,7 +35,7 @@ export const brand = {
   /** 英文首字母大写（导航栏副标、Hero 眉题） */
   nameLatin: "Evision Optical",
   /** 品牌标语（页脚展示） */
-  slogan: "看见，更美的世界。专注学生近视配镜十四年，用心对待每一双眼睛。",
+  slogan: "看见，更美的世界。专注学生近视配镜十年，用心对待每一双眼睛。",
   /** 创立年份 */
   foundedYear: "2012",
 };
@@ -56,7 +56,7 @@ export const copyright = {
 /**
  * 品牌核心数字 —— 全站数字的唯一出处（演示占位数据，上线前替换真实数据）。
  * 【引用位置清单，改数字必须逐处同步】
- *   - years: Hero 统计「14 年」、Hero 副标题「十四年」、页脚标语「十四年」
+ *   - years: Hero 统计「10 年」、Hero 副标题「十年」、页脚标语「十年」
  *   - students: Hero 统计「10 万+」
  *   - steps: Hero 统计/悬浮卡/副标题、产品系列 features、流程步骤 3 的「21 步」
  *   - rating: Hero 统计「4.9 分」、评价区「4.9 / 5.0」
@@ -66,7 +66,7 @@ export const copyright = {
  */
 export const brandFacts = {
   /** 专业视光经验年数 */
-  years: "14",
+  years: "10",
   /** 学生配镜信赖人数（单位「万+」在 config/hero.ts 中） */
   students: "10",
   /** 医学验光步骤数 */
@@ -92,7 +92,7 @@ export const seo = {
   /** 子页面标题模板，%s 会被页面自身标题替换 */
   titleTemplate: "%s｜E视眼镜",
   description:
-    "E视眼镜专注学生近视配镜十四年，21 步医学验光、轻至 8 克的航空钛镜架、延缓近视加深的功能性镜片，同时提供时尚太阳镜与精准老花镜验配。",
+    "E视眼镜专注学生近视配镜十年，21 步医学验光、轻至 8 克的航空钛镜架、延缓近视加深的功能性镜片，同时提供时尚太阳镜与精准老花镜验配。",
   keywords: [
     "E视眼镜",
     "学生配镜",
@@ -104,7 +104,7 @@ export const seo = {
   og: {
     title: "E视眼镜 EVISION OPTICAL｜看清世界，从E视开始",
     description:
-      "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
+      "专注学生近视配镜十年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
     url: "/",
     locale: "zh_CN",
     type: "website",
@@ -115,7 +115,7 @@ export const seo = {
     card: "summary_large_image",
     title: "E视眼镜 EVISION OPTICAL｜看清世界，从E视开始",
     description:
-      "专注学生近视配镜十四年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
+      "专注学生近视配镜十年：医学验光、轻盈镜架、近视防控，也为您与家人提供时尚太阳镜与老花镜。",
   },
 } satisfies {
   // 保持 og.type / twitter.card 的字面量类型，供 app/layout.tsx 的 Metadata 使用

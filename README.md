@@ -68,12 +68,13 @@ Showroom 的分类 Tab 支持键盘左右方向键切换。
 ## 上线前待办
 
 - [x] robots.txt / sitemap.xml / canonical（经 `app/robots.ts`、`app/sitemap.ts` 与 `metadataBase` 自动生成）
-- [x] LocalBusiness(Optician) 结构化数据、og:image 分享图（`public/og-image.png`）、品牌 favicon
-- [ ] **替换占位内容**：门店地址、电话（400-888-6666）、营业时间、套餐价格、以及「14 年 / 10万+ / 4.9 分 / 2,300+ 评价」等信任数据（结构化数据中已刻意不写入这些占位数字）
+- [x] LocalBusiness(Optician) 结构化数据 + GeoCoordinates、og:image 分享图、品牌 favicon
+- [x] 门店真实信息：地址/电话/营业时间/导航坐标（config/contact.ts）
+- [x] 部署：Cloudflare Pages，域名 eshiglasses.com，环境变量 NEXT_PUBLIC_SITE_URL 已配
+- [x] ICP：境外托管无需备案，页脚已移除
+- [x] GEO 基础：llms.txt / llms-full.txt、AI 爬虫放行、决策型博客内容
+- [ ] **替换占位内容**：套餐价格（¥299/¥599 起）、产品名称/规格、部分信任数字（10万+/4.9 分/2,300+ 评价，结构化数据中已刻意不写入）
 - [ ] 接入预约表单真实后端（当前为前端模拟提交，见 `Contact.tsx` 注释）
-- [ ] 替换页脚 ICP 备案号占位
-- [ ] 部署时设置环境变量 `NEXT_PUBLIC_SITE_URL=https://正式域名`（canonical、og:url、robots、sitemap、JSON-LD 均自动跟随）
-- [ ] 如需真实产品照片，可替换三款 SVG 眼镜插画与 Showroom 的 `<ProductArt>`
 
 ## 品牌资产生成脚本
 
