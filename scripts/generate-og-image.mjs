@@ -36,7 +36,7 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
   <rect x="28" y="28" width="1144" height="574" rx="24" fill="none" stroke="#58b925" stroke-opacity="0.55" stroke-width="2"/>
 
   <!-- 左侧文案 -->
-  <text x="80" y="168" font-family="Outfit" font-size="30" letter-spacing="9" fill="#58b925">EVISION OPTICAL · EST. 2012</text>
+  <text x="80" y="168" font-family="Outfit" font-size="30" letter-spacing="9" fill="#58b925">EVISION OPTICAL · EST. 2016</text>
   <text x="76" y="300" font-family="Noto Serif SC" font-weight="700" font-size="132" fill="#fcfbf8">E视眼镜</text>
   <text x="80" y="404" font-family="Noto Serif SC" font-weight="700" font-size="58" fill="#58b925">看清世界，从E视开始</text>
   <text x="80" y="468" font-family="Noto Sans SC" font-weight="500" font-size="30" letter-spacing="6" fill="#d9e2ee">学生配镜 · 专业验光 · 太阳镜 · 老花镜</text>

@@ -37,7 +37,7 @@ export const brand = {
   /** 品牌标语（页脚展示） */
   slogan: "看见，更美的世界。专注学生近视配镜十年，用心对待每一双眼睛。",
   /** 创立年份 */
-  foundedYear: "2012",
+  foundedYear: "2016",
 };
 
 /**
